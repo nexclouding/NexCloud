@@ -27,7 +27,7 @@ NexCloud Monitoring Solution for Private Cloud (DCOS).
 <hr>
 
 ## SMACK API
-![Deployed services](./imgs/SMACK_API.PNG)
+<img src="./imgs/SMACK_API.PNG" width="400"></img>
 <br/>
 <hr>
 
