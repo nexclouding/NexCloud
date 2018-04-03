@@ -37,7 +37,7 @@ NexCloud Monitoring Solution for Private Cloud (DCOS).
 * Notification 을 위해 사용
 
 ### nex_notification.sql
-* nex_rul.sql의 설정에 의해 생성된 데이터 저장
+* nex_rule.sql의 설정에 의해 생성된 데이터 저장
 
 ### nex_node.sql
 * Metric에 의해 수집된 Node 정보 저장
