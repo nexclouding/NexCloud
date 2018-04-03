@@ -32,17 +32,17 @@ NexCloud Monitoring Solution for Private Cloud (DCOS).
 <hr>
 
 ## Configuration
-### nex_rule.sql
+### [nex_rule.sql](https://github.com/nexclouding/NexClipper/blob/master/SQL/nex_rule.sql)
 * Node / Container의 CPU/Memory 임계치 설정
 * Notification 을 위해 사용
 
-### nex_notification.sql
+### [nex_notification.sql](https://github.com/nexclouding/NexClipper/blob/master/SQL/nex_notification.sql)
 * nex_rule.sql의 설정에 의해 생성된 데이터 저장
 
-### nex_node.sql
+### [nex_node.sql](https://github.com/nexclouding/NexClipper/blob/master/SQL/nex_node.sql)
 * Metric에 의해 수집된 Node 정보 저장
 
-### nex_config.sql
+### [nex_config.sql](https://github.com/nexclouding/NexClipper/blob/master/SQL/nex_config.sql)
 <pre>
 INSERT INTO `nex_config` (`code`, `value`) VALUES
 ('influxdb'                 , 'INFLUXDB CONNECTION URL'),
@@ -64,7 +64,7 @@ INSERT INTO `nex_config` (`code`, `value`) VALUES
 </pre>
 <hr>
 
-### nexclipper.json
+### [nexclipper.json](https://github.com/nexclouding/NexClipper/blob/master/JSON/nexclipper.json)
 #### "id": "nexclipper/collecter" ###
 <pre>
 "env": {
