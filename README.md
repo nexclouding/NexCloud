@@ -58,7 +58,7 @@ INSERT INTO `nex_config` (`code`, `value`) VALUES
 ('notification_topic'       , 'ASSURANCE METRIC KAFKA TOPIC NAME'),
 ('redis_host'               , 'REDIS CONNECTION URL'),
 ('redis_port'               , 'REDIS CONNECTION PORT'),
-('scretKey'                 , 'DC/OS가 설치된 master 서버의 "var/lib/dcos/dcos-oauth/auth-token-secret 데이터'),
+('scretKey'                 , 'DC/OS가 설치된 master 서버의 "var/lib/dcos/dcos-oauth/auth-token-secret" 데이터'),
 ('uid'                      , 'DC/OS에 추가한 임의의 사용자'),
 ('kafka_snapshot_group'     , 'KAFKA SNAPSHOT CONSUMER GROUP NAME');
 </pre>
