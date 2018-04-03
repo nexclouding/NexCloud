@@ -12,22 +12,22 @@ NexCloud Monitoring Solution for Private Cloud (DCOS).
 <hr>
 
 ## Development Environment
-<img src="/img/dev_env.png" width="400"></img>
+<img src="./img/dev_env.png" width="400"></img>
 <br/>
 <hr>
 
 ## Architecture
-<img src="/img/Architecture.png" width="500"></img>
+<img src="./img/Architecture.png" width="500"></img>
 <br/>
 <hr>
 
 ## Collector API
-<img src="/img/Collecter_API.png" width="400"></img>
+<img src="./img/Collecter_API.png" width="400"></img>
 <br/>
 <hr>
 
 ## SMACK API
-<img src="/img/SMACK_API.png" width="400"></img>
+<img src="./img/SMACK_API.png" width="400"></img>
 <br/>
 <hr>
 
