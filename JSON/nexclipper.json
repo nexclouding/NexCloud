@@ -176,10 +176,6 @@
 		    }
 		  ],
 		  "instances": 1,
-		  "labels": {
-		    "HAPROXY_0_VHOST": "192.168.0.162",
-		    "HAPROXY_GROUP": "external"
-		  },
 		  "maxLaunchDelaySeconds": 3600,
 		  "mem": 2048,
 		  "gpus": 0,
