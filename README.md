@@ -77,7 +77,7 @@ $ ssh root@<public node ip>
             ('Task', 'Memory', 'metric', 'U', 'nexclipper', 'task', 'mem_used_percent', NULL, 'executor_id', '>95 and >10m', '[%s] 10분동안 Memory 사용율이 95%% 이상입니다. ', 'Y', 'N', '2018-01-29 01:14:07');
             ```
 
-    * [nex_notification.sql](/blob/master/SQL/nex_notification.sql)
+    * [nex_notification.sql](/SQL/nex_notification.sql)
         * nex_rule.sql의 설정에 의해 생성된 데이터 저장
             ```sql
             CREATE TABLE `nex_notification` (
@@ -110,7 +110,7 @@ $ ssh root@<public node ip>
             ENGINE=InnoDB;
             ```
 
-    * [nex_node.sql](/blob/master/SQL/nex_node.sql)
+    * [nex_node.sql](/SQL/nex_node.sql)
         * Metric에 의해 수집된 Node 정보 저장
             ```sql
             CREATE TABLE `nex_node` (
@@ -127,7 +127,7 @@ $ ssh root@<public node ip>
             ENGINE=InnoDB;
             ```
 
-    * [nex_config.sql](/blob/master/SQL/nex_config.sql)
+    * [nex_config.sql](/SQL/nex_config.sql)
 
         * Modify
             ```sql
@@ -173,7 +173,7 @@ $ ssh root@<public node ip>
     <hr>
 
 3. JSON
-    * [nexclipper.json](/blob/master/JSON/nexclipper.json)
+    * [nexclipper.json](/JSON/nexclipper.json)
         * "id": "nexclipper/collecter"
             * Modify
                 ```json
@@ -250,7 +250,7 @@ $ ssh root@<public node ip>
     ```
 * Deploy NexClipper
     ```bash
-    $ dcos marathon group add https://github.com/<your git account>/NexClipper/blob/master/JSON/nexclipper.json
+    $ dcos marathon group add https://raw.githubusercontent.com/nexclouding/<your git account>/master/JSON/nexclipper.json
     ```
 * Execute Service  
     http://service-endpoint/v1/dashboard
