@@ -147,7 +147,7 @@ MySQL에서 다음 SQL 문을 실행한다.
 ## Install NexClipper
 * Access to public agent node
     ```bash
-    $ ssh root@&lt;public node ip&gt;
+    $ ssh root@&<public node ip>
     ```
 * Deploy NexClipper
     ```bash
