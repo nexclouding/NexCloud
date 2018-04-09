@@ -223,7 +223,7 @@ Access to public agent node<br>
 ## Install NexClipper
 * Access to public agent node
     ```bash
-    $ ssh root@&<public node ip>
+    $ ssh root@<public node ip>
     ```
 * Deploy NexClipper
     ```bash
