@@ -16,13 +16,13 @@ Discribe More Features.
 ## Prerequisites
 Access to public agent node<br>
 <pre>$ ssh root@&lt;public node ip&gt;</pre><br>
-* InfluxDB<br> 
+* [InfluxDB](https://universe.dcos.io/#/package/influxdb/version/latest)<br> 
     <pre>$ dcos package install influxdb</pre>
-* MySQL<br>
+* [MySQL](https://universe.dcos.io/#/package/mysql/version/latest) / [MySQL-admin](https://universe.dcos.io/#/package/mysql-admin/version/latest)<br>
     <pre>$ dcos package install mysql<br>$ dcos package install mysql-admin</pre>
-* Redis
+* [Redis](https://universe.dcos.io/#/package/redis/version/latest)
     <pre>$ dcos package install redis</pre>
-* Kafka
+* [Kafka](https://universe.dcos.io/#/package/kafka/version/latest)
     <pre>$ dcos package install kafka</pre>
 <hr>
 
@@ -239,4 +239,4 @@ Access to public agent node<br>
     $ dcos marathon group add https://github.com/nexclouding/NexClipper/blob/master/JSON/nexclipper.json
     ```
 * Execute Service<br>
-    http://Service-endpoint/v1/dashboard
+    http://service-endpoint/v1/dashboard
