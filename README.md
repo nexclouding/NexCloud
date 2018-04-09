@@ -160,7 +160,7 @@ Access to public agent node<br>
 
 2. [JSON](https://github.com/nexclouding/NexClipper/tree/master/JSON)
     * [nexclipper.json](https://github.com/nexclouding/NexClipper/blob/master/JSON/nexclipper.json)
-        * "id": "nexclipper/collecter" ###
+        * "id": "nexclipper/collecter"
             * Modify
                 ```json
                 "env": {
@@ -180,7 +180,7 @@ Access to public agent node<br>
                 },
                 ```
         ---
-        * "id": "nexclipper/workflow" ###
+        * "id": "nexclipper/workflow"
             * Modify
                 ```json
                 "env": {
@@ -204,7 +204,7 @@ Access to public agent node<br>
                 },
                 ```
         ---
-        * "id": "nexclipper/nexclipper" ###
+        * "id": "nexclipper/nexclipper"
             * Modify
                 ```json
                 "env": {
