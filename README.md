@@ -1,8 +1,16 @@
 # NexClipper
-NexCloud Monitoring Solution for Private Cloud (DCOS).<br>
+NexCloud Monitoring Solution for Private Cloud (DCOS).
+Discribe More Features.
+<br><br>
 [Summary](https://github.com/nexclouding/NexClipper#summary) | [Prerequisites](https://github.com/nexclouding/NexClipper#prerequisites) | [Configuration](https://github.com/nexclouding/NexClipper#configuration) | [Installation](https://github.com/nexclouding/NexClipper#installation)
-## Summary
+<hr>
 
+## Features
+* Private Cloud Monitoring: Agent / Container
+* Container Cluster Resource Allocation & Usage Monitoring
+* Event Notification And Event Trace
+* Major Framework & Service Monitoring
+* Container Status Monitoring
 <hr>
 
 ## Prerequisites
