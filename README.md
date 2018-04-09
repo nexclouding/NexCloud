@@ -43,7 +43,7 @@ NexCloud Monitoring Solution for Private Cloud (DCOS).
 * Metric에 의해 수집된 Node 정보 저장
 
 ### [nex_config.sql](https://github.com/nexclouding/NexClipper/blob/master/SQL/nex_config.sql)
-<pre>
+```sql
 INSERT INTO `nex_config` (`code`, `value`) VALUES
 ('influxdb'                 , 'INFLUXDB CONNECTION URL'),
 ('kafka_host'               , 'KAFKA BROKER ADDRESS'),
@@ -61,22 +61,22 @@ INSERT INTO `nex_config` (`code`, `value`) VALUES
 ('scretKey'                 , 'DC/OS가 설치된 master 서버의 "var/lib/dcos/dcos-oauth/auth-token-secret" 데이터'),
 ('uid'                      , 'DC/OS에 추가한 임의의 사용자'),
 ('kafka_snapshot_group'     , 'KAFKA SNAPSHOT CONSUMER GROUP NAME');
-</pre>
+```
 <hr>
 
 ### [nexclipper.json](https://github.com/nexclouding/NexClipper/blob/master/JSON/nexclipper.json)
 #### "id": "nexclipper/collecter" ###
-<pre>
+```json
 "env": {
     "MYSQL_DBNAME": "YOUR DBNAME",
     "MYSQL_URL": "YOUR MYSQL CONNECTION URL",
     "MYSQL_PASSWORD": "YOUR MYSQL PASSWORD",
     "MYSQL_USERNAME": "YOUR MYSQL USERNAME"
 },
-</pre>
+```
 
 #### "id": "nexclipper/workflow" ###
-<pre>
+```json
 "env": {
     "REDIS_HOST": "YOUR REDIS CONNECTION URL",
     "MYSQL_DBNAME": "YOUR DBNAME",
@@ -85,10 +85,10 @@ INSERT INTO `nex_config` (`code`, `value`) VALUES
     "MYSQL_PASSWORD": "YOUR MYSQL PASSWORD",
     "MYSQL_USERNAME": "YOUR MYSQL USERNAME"
 },
-</pre>
+```
 
 #### "id": "nexclipper/nexclipper" ###
-<pre>
+```json
 "env": {
     "REDIS_HOST": "YOUR REDIS CONNECTION URL",
     "MYSQL_DBNAME": "YOUR DBNAME",
@@ -97,4 +97,4 @@ INSERT INTO `nex_config` (`code`, `value`) VALUES
     "MYSQL_PASSWORD": "YOUR MYSQL PASSWORD",
     "MYSQL_USERNAME": "YOUR MYSQL USERNAME"
 },
-</pre>
+```
