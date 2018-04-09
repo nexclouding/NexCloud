@@ -1,7 +1,8 @@
 # NexClipper
-
+NexCloud Monitoring Solution for Private Cloud (DCOS).<br>
+[Summary](https://github.com/nexclouding/NexClipper#summary) | [Prerequisites](https://github.com/nexclouding/NexClipper#prerequisites) | [Configuration](https://github.com/nexclouding/NexClipper#configuration) | [Installation](https://github.com/nexclouding/NexClipper#installation)
 ## Summary
-NexCloud Monitoring Solution for Private Cloud (DCOS).
+
 <hr>
 
 ## Prerequisites
@@ -18,7 +19,7 @@ Access to public agent node<br>
 <hr>
 
 ## Configuration
-1. SQL
+1. [SQL](https://github.com/nexclouding/NexClipper/tree/master/SQL)
 
     MySQL에서 다음 SQL 문을 실행한다.
     ### [nex_rule.sql](https://github.com/nexclouding/NexClipper/blob/master/SQL/nex_rule.sql)
@@ -149,7 +150,7 @@ Access to public agent node<br>
         ```
     <hr>
 
-2. JSON
+2. [JSON](https://github.com/nexclouding/NexClipper/tree/master/JSON)
     ### [nexclipper.json](https://github.com/nexclouding/NexClipper/blob/master/JSON/nexclipper.json)
     #### "id": "nexclipper/collecter" ###
     * Modify
@@ -220,7 +221,7 @@ Access to public agent node<br>
         ```
     <hr>
 
-## Install NexClipper
+## Installation
 * Access to public agent node
     ```bash
     $ ssh root@<public node ip>
