@@ -1,8 +1,9 @@
 # NexClipper
-NexCloud Monitoring Solution for Private Cloud (DCOS).
-Discribe More Features.
-<br><br>
-[Summary](https://github.com/nexclouding/NexClipper#summary) | [Prerequisites](https://github.com/nexclouding/NexClipper#prerequisites) | [Configuration](https://github.com/nexclouding/NexClipper#configuration) | [Installation](https://github.com/nexclouding/NexClipper#installation)
+
+## Summary
+넥스클리퍼는 프라이빗 클라우드 모니터링 솔루션입니다. Apache MESOS, DC/OS, Marathon 클러스터 요약, 리소스 할당 및 사용현황, 마스터 모니터링, 에이전트 상태를 모니터링하고 전문화된 컨테이너 성능 모니터링 및 관리기능을 제공합니다.
+
+[Prerequisites](https://github.com/nexclouding/NexClipper#prerequisites) | [Configuration](https://github.com/nexclouding/NexClipper#configuration) | [Installation](https://github.com/nexclouding/NexClipper#installation)
 <hr>
 
 ## Features
@@ -14,16 +15,27 @@ Discribe More Features.
 <hr>
 
 ## Prerequisites
-Access to public agent node<br>
-<pre>$ ssh root@&lt;public node ip&gt;</pre><br>
-* [InfluxDB](https://universe.dcos.io/#/package/influxdb/version/latest)<br> 
-    <pre>$ dcos package install influxdb</pre>
-* [MySQL](https://universe.dcos.io/#/package/mysql/version/latest) / [MySQL-admin](https://universe.dcos.io/#/package/mysql-admin/version/latest)<br>
-    <pre>$ dcos package install mysql<br>$ dcos package install mysql-admin</pre>
+Access to public agent node  
+```bash
+$ ssh root@<public node ip>
+```
+* [InfluxDB](https://universe.dcos.io/#/package/influxdb/version/latest)  
+    ```bash
+    $ dcos package install influxdb
+    ```
+* [MySQL](https://universe.dcos.io/#/package/mysql/version/latest) / [MySQL-admin](https://universe.dcos.io/#/package/mysql-admin/version/latest)  
+    ```bash
+    $ dcos package install mysql
+    $ dcos package install mysql-admin
+    ```
 * [Redis](https://universe.dcos.io/#/package/redis/version/latest)
-    <pre>$ dcos package install redis</pre>
+    ```bash
+    $ dcos package install redis
+    ```
 * [Kafka](https://universe.dcos.io/#/package/kafka/version/latest)
-    <pre>$ dcos package install kafka</pre>
+    ```bash
+    $ dcos package install kafka
+    ```
 <hr>
 
 ## Configuration
@@ -238,5 +250,5 @@ Access to public agent node<br>
     ```bash
     $ dcos marathon group add https://github.com/nexclouding/NexClipper/blob/master/JSON/nexclipper.json
     ```
-* Execute Service<br>
+* Execute Service  
     http://service-endpoint/v1/dashboard
