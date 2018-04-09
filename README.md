@@ -41,10 +41,10 @@ $ ssh root@<public node ip>
 ## Configuration
 1. Fork this Repository  
 
-2. [SQL](/tree/master/SQL)
+2. SQL
 
     MySQL에서 다음 SQL 문을 실행한다.
-    * [nex_rule.sql](/blob/master/SQL/nex_rule.sql)
+    * [nex_rule.sql](/SQL/nex_rule.sql)
         * Node / Container의 CPU/Memory 임계치 설정
         * Notification 을 위해 사용
             ```sql
@@ -172,7 +172,7 @@ $ ssh root@<public node ip>
             ```
     <hr>
 
-3. [JSON](/tree/master/JSON)
+3. JSON
     * [nexclipper.json](/blob/master/JSON/nexclipper.json)
         * "id": "nexclipper/collecter"
             * Modify
