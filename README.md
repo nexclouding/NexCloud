@@ -41,10 +41,10 @@ $ ssh root@<public node ip>
 ## Configuration
 1. Fork this Repository  
 
-2. [SQL](https://github.com/nexclouding/NexClipper/tree/master/SQL)
+2. [SQL](/tree/master/SQL)
 
     MySQL에서 다음 SQL 문을 실행한다.
-    * [nex_rule.sql](https://github.com/nexclouding/NexClipper/blob/master/SQL/nex_rule.sql)
+    * [nex_rule.sql](/blob/master/SQL/nex_rule.sql)
         * Node / Container의 CPU/Memory 임계치 설정
         * Notification 을 위해 사용
             ```sql
@@ -77,7 +77,7 @@ $ ssh root@<public node ip>
             ('Task', 'Memory', 'metric', 'U', 'nexclipper', 'task', 'mem_used_percent', NULL, 'executor_id', '>95 and >10m', '[%s] 10분동안 Memory 사용율이 95%% 이상입니다. ', 'Y', 'N', '2018-01-29 01:14:07');
             ```
 
-    * [nex_notification.sql](https://github.com/nexclouding/NexClipper/blob/master/SQL/nex_notification.sql)
+    * [nex_notification.sql](/blob/master/SQL/nex_notification.sql)
         * nex_rule.sql의 설정에 의해 생성된 데이터 저장
             ```sql
             CREATE TABLE `nex_notification` (
@@ -110,7 +110,7 @@ $ ssh root@<public node ip>
             ENGINE=InnoDB;
             ```
 
-    * [nex_node.sql](https://github.com/nexclouding/NexClipper/blob/master/SQL/nex_node.sql)
+    * [nex_node.sql](/blob/master/SQL/nex_node.sql)
         * Metric에 의해 수집된 Node 정보 저장
             ```sql
             CREATE TABLE `nex_node` (
@@ -127,7 +127,7 @@ $ ssh root@<public node ip>
             ENGINE=InnoDB;
             ```
 
-    * [nex_config.sql](https://github.com/nexclouding/NexClipper/blob/master/SQL/nex_config.sql)
+    * [nex_config.sql](/blob/master/SQL/nex_config.sql)
 
         * Modify
             ```sql
@@ -172,8 +172,8 @@ $ ssh root@<public node ip>
             ```
     <hr>
 
-3. [JSON](https://github.com/nexclouding/NexClipper/tree/master/JSON)
-    * [nexclipper.json](https://github.com/nexclouding/NexClipper/blob/master/JSON/nexclipper.json)
+3. [JSON](/tree/master/JSON)
+    * [nexclipper.json](/blob/master/JSON/nexclipper.json)
         * "id": "nexclipper/collecter"
             * Modify
                 ```json
