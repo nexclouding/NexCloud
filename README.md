@@ -41,7 +41,7 @@ $ ssh root@<public node ip>
 ## Configuration
 1. Fork this Repository  
 
-2. [SQL](/NexClipper/tree/master/SQL)
+2. [SQL](/tree/master/SQL)
 
     MySQL에서 다음 SQL 문을 실행한다.
     * [nex_rule.sql](/blob/master/SQL/nex_rule.sql)
