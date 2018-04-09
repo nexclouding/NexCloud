@@ -250,7 +250,7 @@ $ ssh root@<public node ip>
     ```
 * Deploy NexClipper
     ```bash
-    $ dcos marathon group add https://raw.githubusercontent.com/nexclouding/<your git account>/master/JSON/nexclipper.json
+    $ dcos marathon group add https://raw.githubusercontent.com/<your git account>/NexClipper/master/JSON/nexclipper.json
     ```
 * Execute Service  
     http://service-endpoint/v1/dashboard
