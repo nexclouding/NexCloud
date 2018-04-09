@@ -238,3 +238,5 @@ Access to public agent node<br>
     ```bash
     $ dcos marathon group add https://github.com/nexclouding/NexClipper/blob/master/JSON/nexclipper.json
     ```
+* Execute Service<br>
+    http://Service-endpoint/v1/dashboard
