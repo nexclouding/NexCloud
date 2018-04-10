@@ -1,7 +1,7 @@
 # NexClipper
 
 ## Summary
-넥스클리퍼는 프라이빗 클라우드 모니터링 솔루션입니다. Apache MESOS, DC/OS, Marathon 클러스터 요약, 리소스 할당 및 사용현황, 마스터 모니터링, 에이전트 상태를 모니터링하고 전문화된 컨테이너 성능 모니터링 및 관리기능을 제공합니다.
+넥스클리퍼는 프라이빗 클라우드 모니터링 솔루션입니다. Apache MESOS, Marathon 클러스터 요약, 리소스 할당 및 사용현황, 마스터 모니터링, 에이전트 상태를 모니터링하고 전문화된 컨테이너 성능 모니터링 및 관리기능을 제공합니다.
 
 [Prerequisites](#prerequisites) | [Configuration](#configuration) | [Installation](#installation)
 <hr>
