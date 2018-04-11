@@ -337,7 +337,7 @@ $ ssh root@<public node ip>
     ```bash
     $ ssh root@<public node ip>
     ```
-* Deploy NexClipper
+* Deploy NexClipper components
     ```bash
     $ dcos marathon app add https://raw.githubusercontent.com/<your git account>/NexClipper/master/JSON/components/collecter.json  
     $ dcos marathon app add https://raw.githubusercontent.com/<your git account>/NexClipper/master/JSON/components/workflow.json  
