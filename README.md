@@ -247,6 +247,9 @@ $ ssh root@<public node ip>
                     "MYSQL_USERNAME": "admin"
                 },
                 ```
+
+    * If you want to install components seperately, follow this link.  
+    [Non-Group Components](#Non-Group_components)
     <hr>
 
 ## Installation
@@ -260,3 +263,6 @@ $ ssh root@<public node ip>
     ```
 * Execute Service  
     http://service-endpoint/v1/dashboard
+<hr>
+
+## Non-Group Components
