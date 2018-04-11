@@ -339,7 +339,9 @@ $ ssh root@<public node ip>
     ```
 * Deploy NexClipper
     ```bash
-    $ dcos marathon group add https://raw.githubusercontent.com/<your git account>/NexClipper/master/JSON/nexclipper.json
+    $ dcos marathon app add https://raw.githubusercontent.com/<your git account>/NexClipper/master/JSON/components/collecter.json  
+    $ dcos marathon app add https://raw.githubusercontent.com/<your git account>/NexClipper/master/JSON/components/workflow.json  
+    $ dcos marathon app add https://raw.githubusercontent.com/<your git account>/NexClipper/master/JSON/components/non_group_nexclipper.json
     ```
 * Execute Service  
-    http://service-endpoint/v1/dashboard        
+    http://nexclipper-service-endpoint/v1/dashboard        
