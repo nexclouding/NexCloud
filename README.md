@@ -249,7 +249,7 @@ $ ssh root@<public node ip>
                 ```
 
     * If you want to install components seperately, follow this link.  
-    [Non-Group Components](#Non-Group_components)
+    [Non-Group Components](#non-group-components)
     <hr>
 
 ## Installation
@@ -266,3 +266,80 @@ $ ssh root@<public node ip>
 <hr>
 
 ## Non-Group Components
+* [collecter.json](/JSON/components/collecter.json)
+    * Modify
+        ```json
+        "env": {
+            "MYSQL_DBNAME": "YOUR DBNAME",
+            "MYSQL_URL": "YOUR MYSQL CONNECTION URL",
+            "MYSQL_PASSWORD": "YOUR MYSQL PASSWORD",
+            "MYSQL_USERNAME": "YOUR MYSQL USERNAME"
+        },
+        ```
+    * Default
+        ```json
+        "env": {
+            "MYSQL_DBNAME": "defaultdb",
+            "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306",
+            "MYSQL_PASSWORD": "password",
+            "MYSQL_USERNAME": "admin"
+        },
+        ```
+---
+* [workflow.json](/JSON/components/workflow.json)
+    * Modify
+        ```json
+        "env": {
+            "REDIS_HOST": "YOUR REDIS CONNECTION URL",
+            "MYSQL_DBNAME": "YOUR DBNAME",
+            "REDIS_PORT": "YOUR REDIS PORT",
+            "MYSQL_URL": "YOUR MYSQL CONNECTION URL",
+            "MYSQL_PASSWORD": "YOUR MYSQL PASSWORD",
+            "MYSQL_USERNAME": "YOUR MYSQL USERNAME"
+        },
+        ```
+    * Default
+        ```json
+        "env": {
+            "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory",
+            "MYSQL_DBNAME": "defaultdb",
+            "REDIS_PORT": "6379",
+            "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306",
+            "MYSQL_PASSWORD": "password",
+            "MYSQL_USERNAME": "admin"
+        },
+        ```
+---
+* [non_group_nexclipper.json](/JSON/components/non_group_nexclipper.json)
+    * Modify
+        ```json
+        "env": {
+            "REDIS_HOST": "YOUR REDIS CONNECTION URL",
+            "MYSQL_DBNAME": "YOUR DBNAME",
+            "REDIS_PORT": "YOUR REDIS PORT",
+            "MYSQL_URL": "YOUR MYSQL CONNECTION URL",
+            "MYSQL_PASSWORD": "YOUR MYSQL PASSWORD",
+            "MYSQL_USERNAME": "YOUR MYSQL USERNAME"
+        },
+        ```
+    * Default
+        ```json
+        "env": {
+            "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory",
+            "MYSQL_DBNAME": "defaultdb",
+            "REDIS_PORT": "6379",
+            "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306",
+            "MYSQL_PASSWORD": "password",
+            "MYSQL_USERNAME": "admin"
+        },
+        ```
+* Access to public agent node
+    ```bash
+    $ ssh root@<public node ip>
+    ```
+* Deploy NexClipper
+    ```bash
+    $ dcos marathon group add https://raw.githubusercontent.com/<your git account>/NexClipper/master/JSON/nexclipper.json
+    ```
+* Execute Service  
+    http://service-endpoint/v1/dashboard        
