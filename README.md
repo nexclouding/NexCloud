@@ -6,7 +6,7 @@ NexCloud는 프라이빗 DC/OS 모니터링 솔루션입니다. Apache MESOS, Ma
 [Prerequisites](#prerequisites) | [Configuration](#configuration) | [Installation](#installation)
 
 * Architecture  
-<img src="./imgs/Architecture.PNG" width="400"></img>
+<img src="./imgs/Architecture.PNG" width="400"></img>  
 <br>
 * Dashboard  
 <img src="./imgs/dashboard.PNG" width="700"></img>  
