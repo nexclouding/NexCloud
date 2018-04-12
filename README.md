@@ -4,6 +4,7 @@
 NexCloud는 프라이빗 DC/OS 모니터링 솔루션입니다. Apache MESOS, Marathon 클러스터 요약, 리소스 할당 및 사용현황, 마스터 모니터링, 에이전트 상태를 모니터링하고 전문화된 컨테이너 성능 모니터링 및 관리기능을 제공합니다.  
 
 [Prerequisites](#prerequisites) | [Configuration](#configuration) | [Installation](#installation)
+<br>
 
 * Architecture  
 <img src="./imgs/Architecture.PNG" width="400"></img>  
@@ -269,7 +270,7 @@ $ ssh root@<DC/OS CLI installed node>
 4. Select Install Type  
 
     -> [Group Install](#group-install)  
-    -> [Component Install](#non-group-component-install)
+    -> [Component Install](#component-install)
 
 * Execute Service  
     http://nexcloud-service-endpoint/v1/dashboard
@@ -282,7 +283,7 @@ $ ssh root@<DC/OS CLI installed node>
     ```
 ---
 
-## Non-Group Component Install
+## Component Install
 1. [collecter.json](/JSON/components/collecter.json)
     ```bash
     $ dcos marathon app add https://raw.githubusercontent.com/nexclouding/NexCloud/master/JSON/components/collecter.json 
