@@ -7,17 +7,21 @@ NexCloud는 프라이빗 DC/OS 모니터링 솔루션입니다. Apache MESOS, Ma
 <br>
 
 * Architecture  
-<img src="./imgs/Architecture.PNG" width="400"></img>  
-<br>
-* Dashboard  
-<img src="./imgs/dashboard.PNG" width="700"></img>  
-<br>
-* Agent Map  
-<img src="./imgs/agent.PNG" width="700"></img>  
-<br>
-* Container  
-<img src="./imgs/container.PNG" width="700"></img>
 
+    <img src="./imgs/Architecture.PNG" width="400"></img>  
+
+* Dashboard  
+
+    <img src="./imgs/dashboard.PNG" width="700"></img>  
+
+* Agent Map  
+
+    <img src="./imgs/agent.PNG" width="700"></img>
+
+* Container  
+
+    <img src="./imgs/container.PNG" width="700"></img>  
+    
 <hr>
 
 ## Features
