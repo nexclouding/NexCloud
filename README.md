@@ -21,12 +21,14 @@ NexCloud는 프라이빗 DC/OS 모니터링 솔루션입니다. Apache MESOS, Ma
 * Container  
 
     <img src="./imgs/container.PNG" width="700"></img>  
-    
+
 <hr>
 
 ## Features
-* Private Cloud Monitoring: Agent / Container
+* Full Stack Dashboard
 * Container Cluster Resource Allocation & Usage Monitoring
+* Private Cloud Monitoring: Agent / Container
+* Container Performance Monitoring & Tracing
 * Event Notification And Event Trace
 * Major Framework & Service Monitoring
 * Container Status Monitoring
@@ -54,6 +56,27 @@ $ ssh root@<DC/OS CLI installed node>
     ```bash
     $ dcos package install kafka
     ```
+<hr>
+
+## Installation
+1. Follow [Configuration](#configuration) steps
+
+2. MySQL Table Create
+
+3. MySQL Data Create.  
+    -> nex_rule & nex_config table
+
+4. Access to DC/OS CLI installed node  
+    ```bash
+    $ ssh root@<DC/OS CLI installed node>
+    ```
+5. Select Install Type  
+
+    -> [Group Install](#group-install)  
+    -> [Component Install](#component-install)
+
+* Execute Service  
+    http://nexcloud-service-endpoint/v1/dashboard
 <hr>
 
 ## Configuration
@@ -189,96 +212,46 @@ $ ssh root@<DC/OS CLI installed node>
             ```
     <hr>
 
-2. JSON
+2. Deployment JSON Modify
     * [nexclipper.json](/JSON/nexclipper.json)
         * "id": "nexclipper/collecter"
-            * Modify
-                ```json
-                "env": {
-                    "MYSQL_DBNAME": "YOUR DBNAME",
-                    "MYSQL_URL": "YOUR MYSQL CONNECTION URL",
-                    "MYSQL_PASSWORD": "YOUR MYSQL PASSWORD",
-                    "MYSQL_USERNAME": "YOUR MYSQL USERNAME"
-                },
-                ```
             * Default
                 ```json
                 "env": {
-                    "MYSQL_DBNAME": "defaultdb",
-                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306",
-                    "MYSQL_PASSWORD": "password",
-                    "MYSQL_USERNAME": "admin"
+                    "MYSQL_DBNAME": "defaultdb (MySQL DB name)",
+                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306 (MySQL URL)",
+                    "MYSQL_PASSWORD": "password (MySQL password)",
+                    "MYSQL_USERNAME": "admin (MySQL account)"
                 },
                 ```
         ---
         * "id": "nexclipper/workflow"
-            * Modify
-                ```json
-                "env": {
-                    "REDIS_HOST": "YOUR REDIS CONNECTION URL",
-                    "MYSQL_DBNAME": "YOUR DBNAME",
-                    "REDIS_PORT": "YOUR REDIS PORT",
-                    "MYSQL_URL": "YOUR MYSQL CONNECTION URL",
-                    "MYSQL_PASSWORD": "YOUR MYSQL PASSWORD",
-                    "MYSQL_USERNAME": "YOUR MYSQL USERNAME"
-                },
-                ```
             * Default
                 ```json
                 "env": {
-                    "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory",
-                    "MYSQL_DBNAME": "defaultdb",
-                    "REDIS_PORT": "6379",
-                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306",
-                    "MYSQL_PASSWORD": "password",
-                    "MYSQL_USERNAME": "admin"
+                    "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory (Redis URL)",
+                    "MYSQL_DBNAME": "defaultdb (MySQL DB name)",
+                    "REDIS_PORT": "6379 (Redis port)",
+                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306 (MySQL URL)",
+                    "MYSQL_PASSWORD": "password (MySQL password)",
+                    "MYSQL_USERNAME": "admin (MySQL account)"
                 },
                 ```
         ---
         * "id": "nexclipper/nexclipper"
-            * Modify
-                ```json
-                "env": {
-                    "REDIS_HOST": "YOUR REDIS CONNECTION URL",
-                    "MYSQL_DBNAME": "YOUR DBNAME",
-                    "REDIS_PORT": "YOUR REDIS PORT",
-                    "MYSQL_URL": "YOUR MYSQL CONNECTION URL",
-                    "MYSQL_PASSWORD": "YOUR MYSQL PASSWORD",
-                    "MYSQL_USERNAME": "YOUR MYSQL USERNAME"
-                },
-                ```
             * Default
                 ```json
                 "env": {
-                    "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory",
-                    "MYSQL_DBNAME": "defaultdb",
-                    "REDIS_PORT": "6379",
-                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306",
-                    "MYSQL_PASSWORD": "password",
-                    "MYSQL_USERNAME": "admin"
+                    "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory (Redis URL)",
+                    "MYSQL_DBNAME": "defaultdb (MySQL DB name)",
+                    "REDIS_PORT": "6379 (Redis port)",
+                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306 (MySQL URL)",
+                    "MYSQL_PASSWORD": "password (MySQL password)",
+                    "MYSQL_USERNAME": "admin (MySQL account)"
                 },
                 ```
 
     <hr>
-
-## Installation
-1. MySQL Table Create
-
-2. MySQL Data Create.  
-    -> nex_rule & nex_config table
-
-3. Access to DC/OS CLI installed node  
-    ```bash
-    $ ssh root@<DC/OS CLI installed node>
-    ```
-4. Select Install Type  
-
-    -> [Group Install](#group-install)  
-    -> [Component Install](#component-install)
-
-* Execute Service  
-    http://nexcloud-service-endpoint/v1/dashboard
-<hr>
 
 ## Group install
 * Deploy NexClipper
