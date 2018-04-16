@@ -8,7 +8,7 @@ NexCloud는 프라이빗 DC/OS 모니터링 솔루션입니다. Apache MESOS, Ma
 
 * Architecture  
 
-    <img src="./imgs/Architecture.PNG" width="400"></img>  
+    <img src="./imgs/Architecture.PNG" width="700"></img>  
 
 * Full Stack Dashboard  
 
@@ -181,8 +181,8 @@ $ ssh root@<DC/OS CLI installed node>
     <hr>
 
 2. Deployment JSON Modify
-    * [nexclipper.json](/JSON/nexclipper.json)
-        * "id": "nexclipper/collecter"
+    * [nexcloud.json](/JSON/nexcloud.json)
+        * "id": "nexcloud/collecter"
             * Default
                 ```json
                 "env": {
@@ -193,7 +193,7 @@ $ ssh root@<DC/OS CLI installed node>
                 },
                 ```
         ---
-        * "id": "nexclipper/workflow"
+        * "id": "nexcloud/workflow"
             * Default
                 ```json
                 "env": {
@@ -206,7 +206,7 @@ $ ssh root@<DC/OS CLI installed node>
                 },
                 ```
         ---
-        * "id": "nexclipper/nexclipper"
+        * "id": "nexcloud/nexcloudui"
             * Default
                 ```json
                 "env": {
@@ -222,9 +222,9 @@ $ ssh root@<DC/OS CLI installed node>
     <hr>
 
 ## Group install
-* Deploy NexClipper
+* Deploy NexCloud
     ```bash
-    $ dcos marathon group add https://raw.githubusercontent.com/nexclouding/NexCloud/master/JSON/nexclipper.json
+    $ dcos marathon group add https://raw.githubusercontent.com/nexclouding/NexCloud/master/JSON/nexcloud.json
     ```
 ---
 
@@ -237,7 +237,7 @@ $ ssh root@<DC/OS CLI installed node>
     ```bash
     $ dcos marathon app add https://raw.githubusercontent.com/nexclouding/NexCloud/master/JSON/components/workflow.json  
     ```
-3. [non_group_nexclipper.json](/JSON/components/non_group_nexclipper.json)
+3. [nexcloudui.json](/JSON/components/nexcloudui.json)
     ```bash
-    $ dcos marathon app add https://raw.githubusercontent.com/nexclouding/NexCloud/master/JSON/components/non_group_nexclipper.json
+    $ dcos marathon app add https://raw.githubusercontent.com/nexclouding/NexCloud/master/JSON/components/nexcloudui.json
     ```
