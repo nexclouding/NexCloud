@@ -15,7 +15,7 @@ INSERT INTO `nex_config` (`code`, `value`) VALUES
 ('kafka_port', '9092'),
 ('kafka_zookeeper', 'master.mesos:2181/dcos-service-kafka'),
 ('mesos_topic', 'data_collector'),
-('mesos_endpoint', 'http://192.168.0.161'),
+('mesos_endpoint', 'http://leader.mesos'),
 ('mesos_influxdb', 'nexclipper'),
 ('mesos_snapshot_topic', 'data_snapshot'),
 ('notification_topic', 'data_assurance'),
