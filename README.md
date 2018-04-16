@@ -137,26 +137,6 @@ $ ssh root@<DC/OS CLI installed node>
             <br>
     * [nex_config.sql](/SQL/nex_config.sql)
         * 필수 설정 정보
-        * Modify
-            ```sql
-            INSERT INTO `nex_config` (`code`, `value`) VALUES
-            ('influxdb'                 , 'INFLUXDB CONNECTION URL'),
-            ('kafka_host'               , 'KAFKA BROKER ADDRESS'),
-            ('kafka_mesos_group'        , 'KAFKA MESOS CONSUMER GROUP NAME - Unique Name'),
-            ('kafka_notification_group' , 'KAFKA ASSURANCE CONSUMER GROUP NAME - Unique Name'),
-            ('kafka_port'               , 'KAFKA CONNECTION PORT'),
-            ('kafka_zookeeper'          , 'KAFKA ZOOKEEPER CONNECTION URL'),
-            ('mesos_topic'              , 'MESOS METRIC KAFKA TOPIC NAME - Unique Name'),
-            ('mesos_endpoint'           , 'MESOS ENDPOINT'),
-            ('mesos_influxdb'           , 'MESOS METRIC INFLUXDB TABLE NAME - Unique Name'),
-            ('mesos_snapshot_topic'     , 'MESOS SNAPSHOT METRIC KAFKA TOPIC NAME - Unique Name'),
-            ('notification_topic'       , 'ASSURANCE METRIC KAFKA TOPIC NAME - Unique Name'),
-            ('redis_host'               , 'REDIS CONNECTION URL'),
-            ('redis_port'               , 'REDIS CONNECTION PORT'),
-            ('scretKey'                 , 'DC/OS가 설치된 master 서버의 "/var/lib/dcos/dcos-oauth/auth-token-secret" 데이터'),
-            ('uid'                      , 'DC/OS에 등록된 사용자'),
-            ('kafka_snapshot_group'     , 'KAFKA SNAPSHOT CONSUMER GROUP NAME - Unique Name');
-            ```
 
         * Default
             ```sql
@@ -177,6 +157,27 @@ $ ssh root@<DC/OS CLI installed node>
             ('scretKey', 'TjRihTXJiMQMvxtOGcLYDqIXgaQJDuLYWYqyCEaxrsOuKULKqKjvgltroQrpGkIP'),
             ('uid', 'admin@nexcloud.co.kr'),
             ('kafka_snapshot_group', 'snapshot_consumer');
+            ```
+
+        * Modify
+            ```sql
+            INSERT INTO `nex_config` (`code`, `value`) VALUES
+            ('influxdb'                 , 'INFLUXDB CONNECTION URL'),
+            ('kafka_host'               , 'KAFKA BROKER ADDRESS'),
+            ('kafka_mesos_group'        , 'KAFKA MESOS CONSUMER GROUP NAME - Unique Name'),
+            ('kafka_notification_group' , 'KAFKA ASSURANCE CONSUMER GROUP NAME - Unique Name'),
+            ('kafka_port'               , 'KAFKA CONNECTION PORT'),
+            ('kafka_zookeeper'          , 'KAFKA ZOOKEEPER CONNECTION URL'),
+            ('mesos_topic'              , 'MESOS METRIC KAFKA TOPIC NAME - Unique Name'),
+            ('mesos_endpoint'           , 'MESOS ENDPOINT'),
+            ('mesos_influxdb'           , 'MESOS METRIC INFLUXDB TABLE NAME - Unique Name'),
+            ('mesos_snapshot_topic'     , 'MESOS SNAPSHOT METRIC KAFKA TOPIC NAME - Unique Name'),
+            ('notification_topic'       , 'ASSURANCE METRIC KAFKA TOPIC NAME - Unique Name'),
+            ('redis_host'               , 'REDIS CONNECTION URL'),
+            ('redis_port'               , 'REDIS CONNECTION PORT'),
+            ('scretKey'                 , 'DC/OS가 설치된 master 서버의 "/var/lib/dcos/dcos-oauth/auth-token-secret" 데이터'),
+            ('uid'                      , 'DC/OS에 등록된 사용자'),
+            ('kafka_snapshot_group'     , 'KAFKA SNAPSHOT CONSUMER GROUP NAME - Unique Name');
             ```
     <hr>
 
