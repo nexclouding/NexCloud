@@ -1,24 +1,29 @@
 # NexCloud
 
 ## Summary
-NexCloud는 프라이빗 DC/OS 모니터링 솔루션입니다. Apache MESOS, Marathon 클러스터 요약, 리소스 할당 및 사용현황, 마스터 모니터링, 에이전트 상태를 모니터링하고 전문화된 컨테이너 성능 모니터링 및 관리기능을 제공합니다.  
+NexCloud product is the monitoring solution specialized Apache mesos, Marathon Orchestration, compute Resource usage, master&agent status based on DC/OS. Also it will be supported automation management, intelligence monitoring function in Enterprise version. This version is free version of Nexcloud and support limited function of monitoring such as only can use Cluster, Node, and Container information. 
 
 [Prerequisites](#prerequisites) | [Configuration](#configuration) | [Installation](#installation)
 <br>
 
 * Architecture  
+    Collector : The part of Nexcloud solution for collect DC/OS Metric, Node etc.. <br>
+    Workflow : The part of Nexcloud solution for process and handle to input all metric data.<br>
+    nexcloudui :The part of Nexcloud solution for visualization.<br>
 
     <img src="./imgs/Architecture.PNG" width="700"></img>  
 
-* Full Stack Dashboard  
-
+* Full Stack Dashboard 
+Enterprise Version (below picture is Free Version which has limited function) Dash board is supported to show all summary information about full stack of DC/OS
     <img src="./imgs/dashboard.PNG" width="700"></img>  
 
-* Agent Map  
+* Agent Map <br>
+This board is showing all information in detail about Node, Agent and host located in cluster.   
 
     <img src="./imgs/agent.PNG" width="700"></img>
 
-* Container  
+* Container <br>
+This board is showing all information in detail about container which is operating in the cluster. 
 
     <img src="./imgs/container.PNG" width="700"></img>  
 
@@ -35,10 +40,11 @@ NexCloud는 프라이빗 DC/OS 모니터링 솔루션입니다. Apache MESOS, Ma
 <hr>
 
 ## Prerequisites
+The installation of Nexcloud can be support by DC/OS CLI and GUI of Univese. It needs some applications such as Influx, MySQL, Redis, Kafka before the installation of Nexcloud. <br><br>
+※	If you have already install these application of Influx, MySQL, Redis, Kafka, you can use existing application. However, it can be possible to change the configuration of the Nexcloud installation.  ( it not necessary, if you use still default configuration of these apps. Please check configuration of Database Name, Password, Account, Port, VIP about these apps )  
 Access to DC/OS CLI installed node  
-```bash
-$ ssh root@<DC/OS CLI installed node>
-```
+<br>
+< DC/OS CLI Installation >  / For more information about CLI, Go to Link  (Installing the CLI)
 * [InfluxDB](https://universe.dcos.io/#/package/influxdb/version/latest)  
     ```bash
     $ dcos package install influxdb
@@ -59,48 +65,46 @@ $ ssh root@<DC/OS CLI installed node>
 <hr>
 
 ## Installation
-1. Follow [Configuration](#configuration) steps
+Before NexCloud installation, you have to create table, initial data of database (Mysql) using below sql scripts. Please login your MySql app. And execute scripts of nex_notification.sql, nex_node.sql, nex_config.sql. 
+also please change the configuration part of scretKey, uid in nex_config.sql. this configuration is your cluster information. 
 
-2. MySQL Table Create
+1. Configuration step before Nexcloud installation <br>
+o	nex_notification.sql : this sql for create table of notification. <br>
+o	nex_notification.sql : this sql for create table of DC/OS Node information.<br>
+o	nex_notification.sql : this sql for input initi data of Nexcloud app configuration<br>
 
-3. MySQL Data Create.  
-    -> nex_config table
-
-4. Access to DC/OS CLI installed node  
-    ```bash
-    $ ssh root@<DC/OS CLI installed node>
-    ```
-5. Select Install Type  
+2. Select Install Type  
 
     -> [Group Install](#group-install)  
-    -> [Component Install](#component-install)
+       it can supoort to install all apps. ( collector, workflow, nexcloudui )<br>       
+    -> [Component Install](#component-install)<br>
+       it can support to install each apps memually. ( collector, workflow, nexcloudui )<br>
+※	if you are using your existing apps (Influx, MySQL, Redis, Kafka), we recommend to install the component install way. Because it is possible to change the environment configuration in your apps.  
 
 * Execute Service  
     http://nexcloud-service-endpoint/v1/dashboard
 <hr>
 
-## Configuration
-
-1. SQL
-
-    MySQL에서 다음 SQL 문을 실행한다.
-    
+## Configuration Step befor Nexcloud installation 
+all sql scripts has to be excute in your Mysql app.
+1. SQL scripts
+    all sql scripts has to be excuted in your Mysql app. 
     * [nex_notification.sql](/SQL/nex_notification.sql)
-        * notification 데이터 저장 테이블
+        * this table is created for saving data of notification
             ```sql
             CREATE TABLE `nex_notification` (
                 `idx` INT(11) NOT NULL AUTO_INCREMENT,
-                `severity` ENUM('Critical','Warning') NOT NULL DEFAULT 'Critical' COMMENT 'Notification등급( Critical, Warning)' COLLATE 'utf8_general_ci',
-                `target_system` VARCHAR(32) NULL DEFAULT NULL COMMENT 'Notification 대상 ( \'Host\',\'Agent\',\'Task\',\'Framework\',\'Docker\' )' COLLATE 'utf8_general_ci',
+                `severity` ENUM('Critical','Warning') NOT NULL DEFAULT 'Critical' COMMENT 'Notification Level ( Critical, Warning)' COLLATE 'utf8_general_ci',
+                `target_system` VARCHAR(32) NULL DEFAULT NULL COMMENT 'Notification target ( \'Host\',\'Agent\',\'Task\',\'Framework\',\'Docker\' )' COLLATE 'utf8_general_ci',
                 `target_ip` VARCHAR(32) NULL DEFAULT NULL COMMENT '발생대상 IP' COLLATE 'utf8_general_ci',
                 `target` VARCHAR(124) NULL DEFAULT NULL COMMENT '발생 대상( CPU, Memory, Disk, Netowrk, System Error..... )' COLLATE 'utf8_general_ci',
                 `metric` VARCHAR(512) NULL DEFAULT NULL COMMENT '수행 Metric' COLLATE 'utf8_general_ci',
                 `condition` VARCHAR(512) NULL DEFAULT NULL COMMENT 'Condition' COLLATE 'utf8_general_ci',
                 `id` VARCHAR(512) NULL DEFAULT NULL COMMENT 'Service/Task/Node/Framework의 Service ID or IP' COLLATE 'utf8_general_ci',
-                `status` ENUM('S','F') NULL DEFAULT 'S' COMMENT '상태 (\'S\':발생, \'F\':종료)' COLLATE 'utf8_general_ci',
-                `start_time` TIMESTAMP NULL DEFAULT NULL COMMENT '시작시간',
-                `finish_time` TIMESTAMP NULL DEFAULT NULL COMMENT '종료시간',
-                `contents` TEXT NOT NULL COMMENT 'notification 내용' COLLATE 'utf8_general_ci',
+                `status` ENUM('S','F') NULL DEFAULT 'S' COMMENT 'Status (\'S\':Start, \'F\':End)' COLLATE 'utf8_general_ci',
+                `start_time` TIMESTAMP NULL DEFAULT NULL COMMENT 'Start Time',
+                `finish_time` TIMESTAMP NULL DEFAULT NULL COMMENT 'End Time',
+                `contents` TEXT NOT NULL COMMENT 'notification Description' COLLATE 'utf8_general_ci',
                 `memo` TEXT NULL COLLATE 'utf8_general_ci',
                 `check_yn` CHAR(1) NOT NULL DEFAULT 'N' COLLATE 'utf8_general_ci',
                 `regdt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -119,16 +123,16 @@ $ ssh root@<DC/OS CLI installed node>
             ```
             <br>
     * [nex_node.sql](/SQL/nex_node.sql)
-        * DC/OS 노드 정보
+        * this talbe is created for saving the node information of DC/OS.
             ```sql
             CREATE TABLE `nex_node` (
-                `node_name` VARCHAR(64) NOT NULL COMMENT '노드명',
-                `node_ip` VARCHAR(32) NOT NULL COMMENT '노드 IP',
-                `node_id` VARCHAR(64) NOT NULL COMMENT '노드 ID',
+                `node_name` VARCHAR(64) NOT NULL COMMENT 'Node Name',
+                `node_ip` VARCHAR(32) NOT NULL COMMENT 'Node IP',
+                `node_id` VARCHAR(64) NOT NULL COMMENT 'Node ID',
                 `role` VARCHAR(64) NOT NULL COMMENT 'role(agent, master)',
-                `parent` VARCHAR(64) NULL DEFAULT NULL COMMENT 'parent host정보',
-                `status` VARCHAR(2) NOT NULL COMMENT '노드상태',
-                `regdt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '등록일',
+                `parent` VARCHAR(64) NULL DEFAULT NULL COMMENT 'Parent Host Information',
+                `status` VARCHAR(2) NOT NULL COMMENT 'Node Status',
+                `regdt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Registed date',
                 UNIQUE INDEX `node_ip` (`node_ip`)
             )
             COLLATE='utf8_general_ci'
@@ -136,7 +140,7 @@ $ ssh root@<DC/OS CLI installed node>
             ```
             <br>
     * [nex_config.sql](/SQL/nex_config.sql)
-        * 필수 설정 정보
+        * these datas is saved about necessary information of nexcloud configuration.
 
         * Default
             ```sql
@@ -158,8 +162,9 @@ $ ssh root@<DC/OS CLI installed node>
             ('uid', 'admin@nexcloud.co.kr'),
             ('kafka_snapshot_group', 'snapshot_consumer');
             ```
+            ※ please change the information of “SecetKey” and “uid”. This information has to be changed in your DC/OS information.
 
-        * Modify
+        * Modify (this is explaination for each columns of instert quarry. please refer it when you change information)
             ```sql
             INSERT INTO `nex_config` (`code`, `value`) VALUES
             ('influxdb'                 , 'INFLUXDB CONNECTION URL'),
@@ -176,7 +181,7 @@ $ ssh root@<DC/OS CLI installed node>
             ('redis_host'               , 'REDIS CONNECTION URL'),
             ('redis_port'               , 'REDIS CONNECTION PORT'),
             ('scretKey'                 , 'DC/OS가 설치된 master 서버의 "/var/lib/dcos/dcos-oauth/auth-token-secret" 데이터'),
-            ('uid'                      , 'DC/OS에 등록된 사용자'),
+            ('uid'                      , 'registed user in your DC/OS'),
             ('kafka_snapshot_group'     , 'KAFKA SNAPSHOT CONSUMER GROUP NAME - Unique Name');
             ```
     <hr>
@@ -187,10 +192,10 @@ $ ssh root@<DC/OS CLI installed node>
             * Default
                 ```json
                 "env": {
-                    "MYSQL_DBNAME": "defaultdb (MySQL DB name)",
-                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306 (MySQL URL)",
-                    "MYSQL_PASSWORD": "password (MySQL password)",
-                    "MYSQL_USERNAME": "admin (MySQL account)"
+                    "MYSQL_DBNAME": "defaultdb",  --> (MySQL DB name)
+                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306",  --> (MySQL URL)
+                    "MYSQL_PASSWORD": "password",  --> (MySQL password)
+                    "MYSQL_USERNAME": "admin"  --> (MySQL account)
                 },
                 ```
         ---
@@ -198,12 +203,12 @@ $ ssh root@<DC/OS CLI installed node>
             * Default
                 ```json
                 "env": {
-                    "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory (Redis URL)",
-                    "MYSQL_DBNAME": "defaultdb (MySQL DB name)",
-                    "REDIS_PORT": "6379 (Redis port)",
-                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306 (MySQL URL)",
-                    "MYSQL_PASSWORD": "password (MySQL password)",
-                    "MYSQL_USERNAME": "admin (MySQL account)"
+                    "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory", --> (Redis URL)
+                    "MYSQL_DBNAME": "defaultdb",  --> (MySQL DB name)
+                    "REDIS_PORT": "6379",  --> (Redis port)
+                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306",  --> (MySQL URL)
+                    "MYSQL_PASSWORD": "password",  --> (MySQL password)
+                    "MYSQL_USERNAME": "admin" --> (MySQL account)
                 },
                 ```
         ---
@@ -211,12 +216,12 @@ $ ssh root@<DC/OS CLI installed node>
             * Default
                 ```json
                 "env": {
-                    "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory (Redis URL)",
-                    "MYSQL_DBNAME": "defaultdb (MySQL DB name)",
-                    "REDIS_PORT": "6379 (Redis port)",
-                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306 (MySQL URL)",
-                    "MYSQL_PASSWORD": "password (MySQL password)",
-                    "MYSQL_USERNAME": "admin (MySQL account)"
+                    "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory",  --> (Redis URL)
+                    "MYSQL_DBNAME": "defaultdb",  --> (MySQL DB name)
+                    "REDIS_PORT": "6379",  --> (Redis port)
+                    "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306", -->(MySQL URL)
+                    "MYSQL_PASSWORD": "password",  --> (MySQL password)
+                    "MYSQL_USERNAME": "admin"  --> (MySQL account)
                 },
                 ```
 
