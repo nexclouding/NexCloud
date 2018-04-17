@@ -73,16 +73,17 @@ also please change the configuration part of scretKey, uid in nex_config.sql. th
 
 1. Configuration step before Nexcloud installation <br>
 o	nex_notification.sql : this sql for create table of notification. <br>
-o	nex_notification.sql : this sql for create table of DC/OS Node information.<br>
-o	nex_notification.sql : this sql for input initi data of Nexcloud app configuration<br>
+o	nex_node.sql : this sql for create table of DC/OS Node information.<br>
+o	nex_config.sql : this sql for input initi data of Nexcloud app configuration<br>
+※	these scipts works on the only mysql app. please donwn load this scripts or capy sql query form sql scpirt. and run it in the MySQL app. <br>
 
 2. Select Install Type  
 
     -> [Group Installation](#group-install)  
-       it can supoort to install all apps. ( collector, workflow, nexcloudui )<br>       
+       it can be supported to install all apps. ( collector, workflow, nexcloudui )<br>       
     -> [Component Installation](#component-install)<br>
-       it can support to install each apps memually. ( collector, workflow, nexcloudui )<br>
-※	if you are using your existing apps (Influx, MySQL, Redis, Kafka), we recommend to install the component installation way. Because you may be change the environment configuration in your apps.  
+       it can be supported to install each apps memually. ( collector, workflow, nexcloudui )<br>
+※	if you are using your existing apps (Influx, MySQL, Redis, Kafka) on your DC/OS Cluster, we recommend to install the component installation way. Because you may be change the environment configuration in your apps.  
 
 * Execute Service  
     http://nexcloud-service-endpoint/v1/dashboard
