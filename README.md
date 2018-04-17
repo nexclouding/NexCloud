@@ -11,7 +11,7 @@ NexCloud product is the monitoring solution specialized Apache mesos, Marathon O
     Workflow : The part of Nexcloud solution for process and handle to input all metric data.<br>
     nexcloudui :The part of Nexcloud solution for visualization.<br>
 
-    <img src="./imgs/Architecture.PNG" width="700"></img>  
+    <img src="./imgs/Architecture.gif" width="700"></img>  
 
 * Full Stack Dashboard 
 Enterprise Version (below picture is Free Version which has limited function) <br>
