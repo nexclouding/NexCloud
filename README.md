@@ -91,12 +91,13 @@ all sql scripts has to be excute in your Mysql app.
 1. SQL scripts
     all sql scripts has to be excuted in your Mysql app. 
     * [nex_notification.sql](/SQL/nex_notification.sql)
-        * this table is created for saving data of notification
+        * this table is created for saving data of notification  
+        
             ```sql
             CREATE TABLE `nex_notification` (
                 `idx` INT(11) NOT NULL AUTO_INCREMENT,
-                `severity` ENUM('Critical','Warning') NOT NULL DEFAULT 'Critical' COMMENT 'Notification Level ( Critical, Warning)' COLLATE 'utf8_general_ci',
-                `target_system` VARCHAR(32) NULL DEFAULT NULL COMMENT 'Notification target ( \'Host\',\'Agent\',\'Task\',\'Framework\',\'Docker\' )' COLLATE 'utf8_general_ci',
+                `severity` ENUM('Critical','Warning') NOT NULL DEFAULT 'Critical' COMMENT 'Notification Level ( Critical, Warning)' COLLATE 'utf8_general_ci',
+                `target_system` VARCHAR(32) NULL DEFAULT NULL COMMENT 'Notification target ( \'Host\',\'Agent\',\'Task\',\'Framework\',\'Docker\' )' COLLATE 'utf8_general_ci',
                 `target_ip` VARCHAR(32) NULL DEFAULT NULL COMMENT '발생대상 IP' COLLATE 'utf8_general_ci',
                 `target` VARCHAR(124) NULL DEFAULT NULL COMMENT '발생 대상( CPU, Memory, Disk, Netowrk, System Error..... )' COLLATE 'utf8_general_ci',
                 `metric` VARCHAR(512) NULL DEFAULT NULL COMMENT '수행 Metric' COLLATE 'utf8_general_ci',
@@ -122,12 +123,12 @@ all sql scripts has to be excute in your Mysql app.
             COLLATE='latin1_swedish_ci'
             ENGINE=InnoDB;
             ```
-            <br>
+            <br> 
     * [nex_node.sql](/SQL/nex_node.sql)
         * this talbe is created for saving the node information of DC/OS.
             ```sql
             CREATE TABLE `nex_node` (
-                `node_name` VARCHAR(64) NOT NULL COMMENT 'Node Name',
+                `node_name` VARCHAR(64) NOT NULL COMMENT 'Node Name',
                 `node_ip` VARCHAR(32) NOT NULL COMMENT 'Node IP',
                 `node_id` VARCHAR(64) NOT NULL COMMENT 'Node ID',
                 `role` VARCHAR(64) NOT NULL COMMENT 'role(agent, master)',
@@ -145,6 +146,14 @@ all sql scripts has to be excute in your Mysql app.
 
         * Default
             ```sql
+            CREATE TABLE `nex_config` (
+                `code` VARCHAR(64) NOT NULL COMMENT '코드명' COLLATE 'utf8_general_ci',
+                `value` TEXT NOT NULL COMMENT '데이터' COLLATE 'utf8_general_ci'
+            )
+            COLLATE='latin1_swedish_ci'
+            ENGINE=InnoDB;
+
+
             INSERT INTO `nex_config` (`code`, `value`) VALUES
             ('influxdb', 'http://influxdb.marathon.l4lb.thisdcos.directory:8086'),
             ('kafka_host', 'broker.kafka.l4lb.thisdcos.directory'),
@@ -167,6 +176,14 @@ all sql scripts has to be excute in your Mysql app.
 
         * Modify (this is explaination for each columns of instert quarry. please refer it when you change information)
             ```sql
+            CREATE TABLE `nex_config` (
+                `code` VARCHAR(64) NOT NULL COMMENT '코드명' COLLATE 'utf8_general_ci',
+                `value` TEXT NOT NULL COMMENT '데이터' COLLATE 'utf8_general_ci'
+            )
+            COLLATE='latin1_swedish_ci'
+            ENGINE=InnoDB;
+
+            
             INSERT INTO `nex_config` (`code`, `value`) VALUES
             ('influxdb'                 , 'INFLUXDB CONNECTION URL'),
             ('kafka_host'               , 'KAFKA BROKER ADDRESS'),
