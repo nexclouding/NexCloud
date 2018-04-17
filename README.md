@@ -1,31 +1,29 @@
 # NexCloud
 
 ## Summary
-NexCloud product is the monitoring solution specialized Apache mesos, Marathon Orchestration, compute Resource usage, master&agent status based on DC/OS. Also it will be supported automation management, intelligence monitoring function in Enterprise version. This version is free version of Nexcloud and support limited function of monitoring such as only can use Cluster, Node, and Container information. 
+NexCloud product is the monitoring solution specialized Apache mesos, Marathon Orchestration, compute Resource usage, master&agent status based on DC/OS. Also it will support automation management, intelligence monitoring function in Enterprise version. This version is free version of Nexcloud and support limited function of monitoring such as only can use Cluster, Node, and Container information. 
 
 [Prerequisites](#prerequisites) | [Configuration](#configuration-step-before-nexcloud-installation) | [Installation](#installation)
 <br>
 
 * Architecture  
-    Collector : The part of Nexcloud solution for collect DC/OS Metric, Node etc.. <br>
-    Workflow : The part of Nexcloud solution for process and handle to input all metric data.<br>
-    nexcloudui :The part of Nexcloud solution for visualization.<br>
+    Collector : The part of Nexcloud solution to collect DC/OS Metric, Node etc..  
+    Workflow : The part of Nexcloud solution for processing and handling to input all metric data.  
+    nexcloudui :The part of Nexcloud solution for visualization.  
 
     <img src="./imgs/Architecture.gif" width="700"></img>  
 
 * Full Stack Dashboard 
-Enterprise Version (below picture is Free Version which has limited function) <br>
-Dash board is showed all summary information about full stack of DC/OS
+Enterprise Version (below picture is Free Version which has limited function)  
+Dashboard shows all summary information about full stack of DC/OS
     <img src="./imgs/dashboard.PNG" width="700"></img>  
 
-* Agent Map <br>
-This board is showed all information in detail about Node, Agent and host located in cluster.   
-
+* Agent Map  
+This map shows all information in detail about Node, Agent and host located in cluster.  
     <img src="./imgs/agent.PNG" width="700"></img>
 
-* Container <br>
-This board is showed all information in detail about container which is operating in the cluster. 
-
+* Container  
+This list shows all information in detail about container which is operating in the cluster.  
     <img src="./imgs/container.PNG" width="700"></img>  
 
 <hr>
