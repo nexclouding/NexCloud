@@ -3,7 +3,7 @@
 ## Summary
 NexCloud product is the monitoring solution specialized Apache mesos, Marathon Orchestration, compute Resource usage, master&agent status based on DC/OS. Also it will be supported automation management, intelligence monitoring function in Enterprise version. This version is free version of Nexcloud and support limited function of monitoring such as only can use Cluster, Node, and Container information. 
 
-[Prerequisites](#prerequisites) | [Configuration](#configuration) | [Installation](#installation)
+[Prerequisites](#prerequisites) | [Configuration](#configuration-step-before-nexcloud-installation) | [Installation](#installation)
 <br>
 
 * Architecture  
@@ -86,7 +86,7 @@ o	nex_notification.sql : this sql for input initi data of Nexcloud app configura
     http://nexcloud-service-endpoint/v1/dashboard
 <hr>
 
-## Configuration Step befor Nexcloud installation 
+## Configuration Step before Nexcloud installation 
 all sql scripts has to be excute in your Mysql app.
 1. SQL scripts
     all sql scripts has to be excuted in your Mysql app. 
