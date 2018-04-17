@@ -42,10 +42,12 @@ This board is showed all information in detail about container which is operatin
 
 ## Prerequisites
 The installation of Nexcloud can be supported by DC/OS CLI and GUI of Univese. It needs some applications such as Influx, MySQL, Redis, Kafka before the installation of Nexcloud. <br><br>
-※	If you have already install these apps of Influx, MySQL, Redis, Kafka, you can use existing apps. However, you have to check the your app's configuration, if specificed configuration is used.  ( It is not necessary, if you use still default configuration of these apps. Please check configuration of Database Name, Password, Account, Port, VIP about these apps )  
-Access to DC/OS CLI installed node  
+※	If you have already installed these apps of Influx, MySQL, Redis, Kafka on your DC/OS Clustster, you can use existing apps. However, you have to check the your app's configuration, if specificed configuration is used.  ( It is not necessary, if you use still default configuration of these apps. Please check configuration of Database Name, Password, Account, Port, VIP about these apps )  
 <br>
-< DC/OS CLI Installation >  / For more information about CLI, Go to Link  (Installing the CLI)
+
+< DC/OS CLI Installation >  / For more information about CLI, Go to Link  (Installing the CLI) <br>
+Access to DC/OS CLI installed node <br>
+
 * [InfluxDB](https://universe.dcos.io/#/package/influxdb/version/latest)  
     ```bash
     $ dcos package install influxdb
