@@ -14,7 +14,7 @@ NexCloud product is the monitoring solution specialized Apache mesos, Marathon O
     <img src="./imgs/Architecture.gif" width="700"></img>  
 
 * Full Stack Dashboard 
-Enterprise Version (below picture is Free Version which has limited function) <br>
+below picture is Free Version. however, some functions are limited. <br>
 Dash board is showed all summary information about full stack of DC/OS
     <img src="./imgs/dashboard.PNG" width="700"></img>  
 
