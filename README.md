@@ -14,7 +14,8 @@ NexCloud product is the monitoring solution specialized Apache mesos, Marathon O
     <img src="./imgs/Architecture.PNG" width="700"></img>  
 
 * Full Stack Dashboard 
-Enterprise Version (below picture is Free Version which has limited function) Dash board is supported to show all summary information about full stack of DC/OS
+Enterprise Version (below picture is Free Version which has limited function) <br>
+Dash board is showing all summary information about full stack of DC/OS
     <img src="./imgs/dashboard.PNG" width="700"></img>  
 
 * Agent Map <br>
@@ -40,7 +41,7 @@ This board is showing all information in detail about container which is operati
 <hr>
 
 ## Prerequisites
-The installation of Nexcloud can be support by DC/OS CLI and GUI of Univese. It needs some applications such as Influx, MySQL, Redis, Kafka before the installation of Nexcloud. <br><br>
+The installation of Nexcloud can be supported by DC/OS CLI and GUI of Univese. It needs some applications such as Influx, MySQL, Redis, Kafka before the installation of Nexcloud. <br><br>
 ※	If you have already install these application of Influx, MySQL, Redis, Kafka, you can use existing application. However, it can be possible to change the configuration of the Nexcloud installation.  ( it not necessary, if you use still default configuration of these apps. Please check configuration of Database Name, Password, Account, Port, VIP about these apps )  
 Access to DC/OS CLI installed node  
 <br>
