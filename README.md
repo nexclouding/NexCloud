@@ -83,18 +83,18 @@ o	nex_config.sql : this sql for input initi data of Nexcloud app configuration<b
        it can be supported to install all apps. ( collector, workflow, nexcloudui )<br>       
     -> [Component Installation](#component-install)<br>
        it can be supported to install each apps memually. ( collector, workflow, nexcloudui )<br>
-※	if you are using your existing apps (Influx, MySQL, Redis, Kafka) on your DC/OS Cluster, we recommend to install the component installation way. Because you may be change the environment configuration in your apps.  
+※	If you are using your existing apps (Influx, MySQL, Redis, Kafka) on your DC/OS Cluster, we recommend to install the component installation way. Because you may be change the environment configuration in your apps.  
 
 * Execute Service  
     http://nexcloud-service-endpoint/v1/dashboard
 <hr>
 
 ## Configuration Step before Nexcloud installation 
-all sql scripts has to be excute in your Mysql app.
+All sql scripts has to be excute in your Mysql app.
 1. SQL scripts
     All sql scripts has to be excuted in your Mysql app. 
     * [nex_notification.sql](/SQL/nex_notification.sql)
-        * this table is created for saving data of notification  
+        * This table is created for saving data of notification  
         
             ```sql
             CREATE TABLE `nex_notification` (
@@ -174,7 +174,7 @@ all sql scripts has to be excute in your Mysql app.
             ('uid', 'admin@nexcloud.co.kr'),
             ('kafka_snapshot_group', 'snapshot_consumer');
             ```
-            ※ please change the information of “SecetKey” and “uid”. This information has to be changed in your DC/OS information.
+            ※ Please change the information of “SecetKey” and “uid”. This information has to be changed in your DC/OS information.
 
         * This is explaination for each columns of instert quarry. please refer it when you change information
             ```sql
@@ -200,7 +200,7 @@ all sql scripts has to be excute in your Mysql app.
 
 2. Deployment JSON Modify
 
-    * [nexcloud.json](/JSON/nexcloud.json) -> this mark mean explaination for object. please delete it, when you change "env" in the json.<br>
+    * [nexcloud.json](/JSON/nexcloud.json) -> This mark mean explaination for object. please delete it, when you change "env" in the json.<br>
     
         * "id": "nexcloud/collecter"
             * Default setting
@@ -247,7 +247,7 @@ all sql scripts has to be excute in your Mysql app.
     $ dcos marathon group add https://raw.githubusercontent.com/nexclouding/NexCloud/master/JSON/nexcloud.json
     ```
     ※	This installation is only for initial user. please install it by this way, if you finished the Configuration Step.
-    if you have already installed the apps (Influx, MySQL, Redis, Kafka), please install it by component installation way. 
+    If you have already installed the apps (Influx, MySQL, Redis, Kafka), please install it by component installation way. 
 
 ---
 
