@@ -203,7 +203,7 @@ all sql scripts has to be excute in your Mysql app.
     <hr>
 
 2. Deployment JSON Modify
-    * [nexcloud.json](/JSON/nexcloud.json) / "-->" mean is explaination for object. 
+    * [nexcloud.json](/JSON/nexcloud.json) / "-->" this mark mean explaination for object. please delete it, when you change "env".
         * "id": "nexcloud/collecter"
             * Default setting
                 ```json
