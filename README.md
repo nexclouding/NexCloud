@@ -203,7 +203,8 @@ all sql scripts has to be excute in your Mysql app.
     <hr>
 
 2. Deployment JSON Modify
-    * [nexcloud.json](/JSON/nexcloud.json) / "-->" this mark mean explaination for object. please delete it, when you change "env".
+    * [nexcloud.json](/JSON/nexcloud.json) / "-->" this mark mean explaination for object. please delete it, when you change "env" in the json.<br>
+    
         * "id": "nexcloud/collecter"
             * Default setting
                 ```json
@@ -249,6 +250,7 @@ all sql scripts has to be excute in your Mysql app.
     $ dcos marathon group add https://raw.githubusercontent.com/nexclouding/NexCloud/master/JSON/nexcloud.json
     ```
     ※	This installation is only for initial user. please install it by this way, if you finished the Configuration Step.
+    if you have already installed the apps (Influx, MySQL, Redis, Kafka), please install it by component installation way. 
 
 ---
 
