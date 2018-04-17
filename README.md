@@ -15,16 +15,16 @@ NexCloud product is the monitoring solution specialized Apache mesos, Marathon O
 
 * Full Stack Dashboard 
 Enterprise Version (below picture is Free Version which has limited function) <br>
-Dash board is showing all summary information about full stack of DC/OS
+Dash board is showed all summary information about full stack of DC/OS
     <img src="./imgs/dashboard.PNG" width="700"></img>  
 
 * Agent Map <br>
-This board is showing all information in detail about Node, Agent and host located in cluster.   
+This board is showed all information in detail about Node, Agent and host located in cluster.   
 
     <img src="./imgs/agent.PNG" width="700"></img>
 
 * Container <br>
-This board is showing all information in detail about container which is operating in the cluster. 
+This board is showed all information in detail about container which is operating in the cluster. 
 
     <img src="./imgs/container.PNG" width="700"></img>  
 
