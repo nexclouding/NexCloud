@@ -15,16 +15,16 @@ NexCloud product is the monitoring solution specialized Apache mesos, Marathon O
 
 * Full Stack Dashboard 
 Enterprise Version (below picture is Free Version which has limited function) <br>
-Dash board is showing all summary information about full stack of DC/OS
+Dash board is showed all summary information about full stack of DC/OS
     <img src="./imgs/dashboard.PNG" width="700"></img>  
 
 * Agent Map <br>
-This board is showing all information in detail about Node, Agent and host located in cluster.   
+This board is showed all information in detail about Node, Agent and host located in cluster.   
 
     <img src="./imgs/agent.PNG" width="700"></img>
 
 * Container <br>
-This board is showing all information in detail about container which is operating in the cluster. 
+This board is showed all information in detail about container which is operating in the cluster. 
 
     <img src="./imgs/container.PNG" width="700"></img>  
 
@@ -42,10 +42,12 @@ This board is showing all information in detail about container which is operati
 
 ## Prerequisites
 The installation of Nexcloud can be supported by DC/OS CLI and GUI of Univese. It needs some applications such as Influx, MySQL, Redis, Kafka before the installation of Nexcloud. <br><br>
-※	If you have already install these apps of Influx, MySQL, Redis, Kafka, you can use existing apps. However, you have to check the your app's configuration, if specificed configuration is used.  ( It is not necessary, if you use still default configuration of these apps. Please check configuration of Database Name, Password, Account, Port, VIP about these apps )  
-Access to DC/OS CLI installed node  
+※	If you have already installed these apps of Influx, MySQL, Redis, Kafka on your DC/OS Clustster, you can use existing apps. However, you have to check the your app's configuration, if specificed configuration is used.  ( It is not necessary, if you use still default configuration of these apps. Please check configuration of Database Name, Password, Account, Port, VIP about these apps )  
 <br>
-< DC/OS CLI Installation >  / For more information about CLI, Go to Link  (Installing the CLI)
+
+< DC/OS CLI Installation >  / For more information about CLI, Go to Link  (Installing the CLI) <br>
+Access to DC/OS CLI installed node <br>
+
 * [InfluxDB](https://universe.dcos.io/#/package/influxdb/version/latest)  
     ```bash
     $ dcos package install influxdb
@@ -71,16 +73,17 @@ also please change the configuration part of scretKey, uid in nex_config.sql. th
 
 1. Configuration step before Nexcloud installation <br>
 o	nex_notification.sql : this sql for create table of notification. <br>
-o	nex_notification.sql : this sql for create table of DC/OS Node information.<br>
-o	nex_notification.sql : this sql for input initi data of Nexcloud app configuration<br>
+o	nex_node.sql : this sql for create table of DC/OS Node information.<br>
+o	nex_config.sql : this sql for input initi data of Nexcloud app configuration<br>
+※	these scipts works on the only mysql app. please donwn load this scripts or capy sql query form sql scpirt. and run it in the MySQL app. <br>
 
 2. Select Install Type  
 
     -> [Group Installation](#group-install)  
-       it can supoort to install all apps. ( collector, workflow, nexcloudui )<br>       
+       it can be supported to install all apps. ( collector, workflow, nexcloudui )<br>       
     -> [Component Installation](#component-install)<br>
-       it can support to install each apps memually. ( collector, workflow, nexcloudui )<br>
-※	if you are using your existing apps (Influx, MySQL, Redis, Kafka), we recommend to install the component installation way. Because you may be change the environment configuration in your apps.  
+       it can be supported to install each apps memually. ( collector, workflow, nexcloudui )<br>
+※	if you are using your existing apps (Influx, MySQL, Redis, Kafka) on your DC/OS Cluster, we recommend to install the component installation way. Because you may be change the environment configuration in your apps.  
 
 * Execute Service  
     http://nexcloud-service-endpoint/v1/dashboard
