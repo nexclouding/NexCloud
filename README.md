@@ -42,7 +42,7 @@ This board is showing all information in detail about container which is operati
 
 ## Prerequisites
 The installation of Nexcloud can be supported by DC/OS CLI and GUI of Univese. It needs some applications such as Influx, MySQL, Redis, Kafka before the installation of Nexcloud. <br><br>
-※	If you have already install these application of Influx, MySQL, Redis, Kafka, you can use existing application. However, it can be possible to change the configuration of the Nexcloud installation.  ( it not necessary, if you use still default configuration of these apps. Please check configuration of Database Name, Password, Account, Port, VIP about these apps )  
+※	If you have already install these apps of Influx, MySQL, Redis, Kafka, you can use existing apps. However, you have to check the your app's configuration, if specificed configuration is used.  ( It is not necessary, if you use still default configuration of these apps. Please check configuration of Database Name, Password, Account, Port, VIP about these apps )  
 Access to DC/OS CLI installed node  
 <br>
 < DC/OS CLI Installation >  / For more information about CLI, Go to Link  (Installing the CLI)
@@ -66,7 +66,7 @@ Access to DC/OS CLI installed node
 <hr>
 
 ## Installation
-Before NexCloud installation, you have to create table, initial data of database (Mysql) using below sql scripts. Please login your MySql app. And execute scripts of nex_notification.sql, nex_node.sql, nex_config.sql. 
+Before NexCloud installation, you have to create table and input initial data in the database (Mysql) using below sql scripts. Please login your MySql app. And execute scripts of nex_notification.sql, nex_node.sql, nex_config.sql. 
 also please change the configuration part of scretKey, uid in nex_config.sql. this configuration is your cluster information. 
 
 1. Configuration step before Nexcloud installation <br>
@@ -76,11 +76,11 @@ o	nex_notification.sql : this sql for input initi data of Nexcloud app configura
 
 2. Select Install Type  
 
-    -> [Group Install](#group-install)  
+    -> [Group Installation](#group-install)  
        it can supoort to install all apps. ( collector, workflow, nexcloudui )<br>       
-    -> [Component Install](#component-install)<br>
+    -> [Component Installation](#component-install)<br>
        it can support to install each apps memually. ( collector, workflow, nexcloudui )<br>
-※	if you are using your existing apps (Influx, MySQL, Redis, Kafka), we recommend to install the component install way. Because it is possible to change the environment configuration in your apps.  
+※	if you are using your existing apps (Influx, MySQL, Redis, Kafka), we recommend to install the component installation way. Because you may be change the environment configuration in your apps.  
 
 * Execute Service  
     http://nexcloud-service-endpoint/v1/dashboard
@@ -98,9 +98,9 @@ all sql scripts has to be excute in your Mysql app.
                 `idx` INT(11) NOT NULL AUTO_INCREMENT,
                 `severity` ENUM('Critical','Warning') NOT NULL DEFAULT 'Critical' COMMENT 'Notification Level ( Critical, Warning)' COLLATE 'utf8_general_ci',
                 `target_system` VARCHAR(32) NULL DEFAULT NULL COMMENT 'Notification target ( \'Host\',\'Agent\',\'Task\',\'Framework\',\'Docker\' )' COLLATE 'utf8_general_ci',
-                `target_ip` VARCHAR(32) NULL DEFAULT NULL COMMENT '발생대상 IP' COLLATE 'utf8_general_ci',
-                `target` VARCHAR(124) NULL DEFAULT NULL COMMENT '발생 대상( CPU, Memory, Disk, Netowrk, System Error..... )' COLLATE 'utf8_general_ci',
-                `metric` VARCHAR(512) NULL DEFAULT NULL COMMENT '수행 Metric' COLLATE 'utf8_general_ci',
+                `target_ip` VARCHAR(32) NULL DEFAULT NULL COMMENT 'Target IP' COLLATE 'utf8_general_ci',
+                `target` VARCHAR(124) NULL DEFAULT NULL COMMENT 'Target( CPU, Memory, Disk, Netowrk, System Error..... )' COLLATE 'utf8_general_ci',
+                `metric` VARCHAR(512) NULL DEFAULT NULL COMMENT 'Metric' COLLATE 'utf8_general_ci',
                 `condition` VARCHAR(512) NULL DEFAULT NULL COMMENT 'Condition' COLLATE 'utf8_general_ci',
                 `id` VARCHAR(512) NULL DEFAULT NULL COMMENT 'Service/Task/Node/Framework의 Service ID or IP' COLLATE 'utf8_general_ci',
                 `status` ENUM('S','F') NULL DEFAULT 'S' COMMENT 'Status (\'S\':Start, \'F\':End)' COLLATE 'utf8_general_ci',
@@ -143,12 +143,10 @@ all sql scripts has to be excute in your Mysql app.
             <br>
     * [nex_config.sql](/SQL/nex_config.sql)
         * these datas is saved about necessary information of nexcloud configuration.
-
-        * Default
             ```sql
             CREATE TABLE `nex_config` (
-                `code` VARCHAR(64) NOT NULL COMMENT '코드명' COLLATE 'utf8_general_ci',
-                `value` TEXT NOT NULL COMMENT '데이터' COLLATE 'utf8_general_ci'
+                `code` VARCHAR(64) NOT NULL COMMENT 'Code Name' COLLATE 'utf8_general_ci',
+                `value` TEXT NOT NULL COMMENT 'Data' COLLATE 'utf8_general_ci'
             )
             COLLATE='latin1_swedish_ci'
             ENGINE=InnoDB;
@@ -174,10 +172,10 @@ all sql scripts has to be excute in your Mysql app.
             ```
             ※ please change the information of “SecetKey” and “uid”. This information has to be changed in your DC/OS information.
 
-        * Modify (this is explaination for each columns of instert quarry. please refer it when you change information)
+        * This is explaination for each columns of instert quarry. please refer it when you change information
             ```sql
             CREATE TABLE `nex_config` (
-                `code` VARCHAR(64) NOT NULL COMMENT '코드명' COLLATE 'utf8_general_ci',
+                `code` VARCHAR(64) NOT NULL COMMENT 'Code Name' COLLATE 'utf8_general_ci',
                 `value` TEXT NOT NULL COMMENT '데이터' COLLATE 'utf8_general_ci'
             )
             COLLATE='latin1_swedish_ci'
@@ -205,9 +203,9 @@ all sql scripts has to be excute in your Mysql app.
     <hr>
 
 2. Deployment JSON Modify
-    * [nexcloud.json](/JSON/nexcloud.json)
+    * [nexcloud.json](/JSON/nexcloud.json) / "-->" mean is explaination for object. 
         * "id": "nexcloud/collecter"
-            * Default
+            * Default setting
                 ```json
                 "env": {
                     "MYSQL_DBNAME": "defaultdb",  --> (MySQL DB name)
@@ -218,7 +216,7 @@ all sql scripts has to be excute in your Mysql app.
                 ```
         ---
         * "id": "nexcloud/workflow"
-            * Default
+            * Default setting 
                 ```json
                 "env": {
                     "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory", --> (Redis URL)
@@ -231,7 +229,7 @@ all sql scripts has to be excute in your Mysql app.
                 ```
         ---
         * "id": "nexcloud/nexcloudui"
-            * Default
+            * Default setting
                 ```json
                 "env": {
                     "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory",  --> (Redis URL)
@@ -250,6 +248,8 @@ all sql scripts has to be excute in your Mysql app.
     ```bash
     $ dcos marathon group add https://raw.githubusercontent.com/nexclouding/NexCloud/master/JSON/nexcloud.json
     ```
+    ※	This installation is only for initial user. please install it by this way, if you finished the Configuration Step.
+
 ---
 
 ## Component Install
