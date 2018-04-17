@@ -202,7 +202,7 @@ All sql scripts has to be excute in your Mysql app.
     
         * "id": "nexcloud/collecter"
             * Default setting
-                ```json
+                ```
                 "env": {
                     "MYSQL_DBNAME": "defaultdb",  --> (MySQL DB name)
                     "MYSQL_URL": "mysql.marathon.l4lb.thisdcos.directory:3306",  --> (MySQL URL)
@@ -213,7 +213,7 @@ All sql scripts has to be excute in your Mysql app.
         ---
         * "id": "nexcloud/workflow"
             * Default setting 
-                ```json
+                ```
                 "env": {
                     "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory", --> (Redis URL)
                     "MYSQL_DBNAME": "defaultdb",  --> (MySQL DB name)
@@ -226,7 +226,7 @@ All sql scripts has to be excute in your Mysql app.
         ---
         * "id": "nexcloud/nexcloudui"
             * Default setting
-                ```json
+                ```
                 "env": {
                     "REDIS_HOST": "redis.marathon.l4lb.thisdcos.directory",  --> (Redis URL)
                     "MYSQL_DBNAME": "defaultdb",  --> (MySQL DB name)
