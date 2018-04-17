@@ -89,7 +89,7 @@ o	nex_notification.sql : this sql for input initi data of Nexcloud app configura
 ## Configuration Step before Nexcloud installation 
 all sql scripts has to be excute in your Mysql app.
 1. SQL scripts
-    all sql scripts has to be excuted in your Mysql app. 
+    All sql scripts has to be excuted in your Mysql app. 
     * [nex_notification.sql](/SQL/nex_notification.sql)
         * this table is created for saving data of notification  
         
@@ -125,7 +125,7 @@ all sql scripts has to be excute in your Mysql app.
             ```
             <br> 
     * [nex_node.sql](/SQL/nex_node.sql)
-        * this talbe is created for saving the node information of DC/OS.
+        * This table is created for saving the node information of DC/OS.
             ```sql
             CREATE TABLE `nex_node` (
                 `node_name` VARCHAR(64) NOT NULL COMMENT 'Node Name',
@@ -142,7 +142,7 @@ all sql scripts has to be excute in your Mysql app.
             ```
             <br>
     * [nex_config.sql](/SQL/nex_config.sql)
-        * these datas is saved about necessary information of nexcloud configuration.
+        * This table is created for nexcloud configuration.
             ```sql
             CREATE TABLE `nex_config` (
                 `code` VARCHAR(64) NOT NULL COMMENT 'Code Name' COLLATE 'utf8_general_ci',
@@ -150,8 +150,9 @@ all sql scripts has to be excute in your Mysql app.
             )
             COLLATE='latin1_swedish_ci'
             ENGINE=InnoDB;
-
-
+            ```
+        * These datas is saved about necessary information of nexcloud configuration.
+            ```sql
             INSERT INTO `nex_config` (`code`, `value`) VALUES
             ('influxdb', 'http://influxdb.marathon.l4lb.thisdcos.directory:8086'),
             ('kafka_host', 'broker.kafka.l4lb.thisdcos.directory'),
@@ -174,14 +175,6 @@ all sql scripts has to be excute in your Mysql app.
 
         * This is explaination for each columns of instert quarry. please refer it when you change information
             ```sql
-            CREATE TABLE `nex_config` (
-                `code` VARCHAR(64) NOT NULL COMMENT 'Code Name' COLLATE 'utf8_general_ci',
-                `value` TEXT NOT NULL COMMENT '데이터' COLLATE 'utf8_general_ci'
-            )
-            COLLATE='latin1_swedish_ci'
-            ENGINE=InnoDB;
-
-            
             INSERT INTO `nex_config` (`code`, `value`) VALUES
             ('influxdb'                 , 'INFLUXDB CONNECTION URL'),
             ('kafka_host'               , 'KAFKA BROKER ADDRESS'),
