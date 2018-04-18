@@ -1,7 +1,7 @@
 # NexCloud
 
 ## Summary
-NexCloud product is the monitoring solution specialized Apache mesos, Marathon Orchestration, compute Resource usage, master&agent status based on DC/OS. Also it will support automation management, intelligence monitoring function in Enterprise version. This version is free version of Nexcloud and support limited function of monitoring such as only can use Cluster, Node, and Container information. 
+NexCloud product is the monitoring solution specialized [Apache Mesos](http://mesos.apache.org/), [Marathon Orchestration](https://mesosphere.github.io/marathon/), compute Resource usage, master&agent status based on [DC/OS](https://dcos.io/). Also it will support automation management, intelligence monitoring function in Enterprise version. This version is free version of Nexcloud and support limited function of monitoring such as only can use Cluster, Node, and Container information. 
 
 [Prerequisites](#prerequisites) | [Configuration](#configuration-step-before-nexcloud-installation) | [Installation](#installation)
 <br>
