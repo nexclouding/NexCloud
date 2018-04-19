@@ -205,7 +205,7 @@ All sql scripts has to be excute in your Mysql app.
 
     * [nexcloud.json](/JSON/nexcloud.json) -> This mark mean explaination for object. please delete it, when you change "env" in the json.<br>
     
-        * "id": "nexcloud/collecter"
+        * **"id": "nexcloud/collecter"**
             * Default setting
                 ```
                 "env": {
@@ -216,7 +216,7 @@ All sql scripts has to be excute in your Mysql app.
                 },
                 ```
         ---
-        * "id": "nexcloud/workflow"
+        * **"id": "nexcloud/workflow"**
             * Default setting 
                 ```
                 "env": {
@@ -229,7 +229,7 @@ All sql scripts has to be excute in your Mysql app.
                 },
                 ```
         ---
-        * "id": "nexcloud/nexcloudui"
+        * **"id": "nexcloud/nexcloudui"**
             * Default setting
                 ```
                 "env": {
