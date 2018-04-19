@@ -1,7 +1,12 @@
 # NexCloud (Beta)
 
 ## Summary
-NexCloud is the monitoring solution specialized in [Apache Mesos](http://mesos.apache.org/), [Mesosphere](https://mesosphere.com), [Marathon Orchestration](https://mesosphere.github.io/marathon/), compute Resource usage, master&agent status based on [DC/OS](https://dcos.io/). Also it will support automation management, intelligence monitoring function in Enterprise version. This version is free version of Nexcloud and support limited function of monitoring such as only can use Cluster, Node, and Container information. 
+NexCloud is the container monitoring and performance management solution specialized in [Docker](https://www.docker.com), [Apache Mesos](http://mesos.apache.org), [Marathon](https://mesosphere.github.io/marathon/), [DC/OS](https://dcos.io), [Mesosphere](https://mesosphere.com), [Kubernetes](https://kubernetes.io/)(Soon).  It will provide container performance management , Microservice automation through API Gateway and Machine learning based predictive, forecasting, abnormal detection with enterprise version.  
+  
+
+In this beta version, it support fundamental function to monitor and analyze container cluster(Mesos, DC/OS, Mesosphere), Container, Agent and basic root cause functionality for event management with on-premise version. At next beta and SaaS version, it will provide more rich functionality for root cause (event management, resource tracing, performance monitor and transaction tasing, etc) soon.  
+
+For more detail product, visit http://www.nexcloud.co.kr.
 
 [Prerequisites](#prerequisites) | [Configuration](#configuration-step-before-nexcloud-installation) | [Installation](#installation)
 <br>
