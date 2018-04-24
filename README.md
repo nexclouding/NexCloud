@@ -98,107 +98,15 @@ All sql scripts has to be excute in your Mysql app.
     All sql scripts has to be excuted in your Mysql app. 
     * [nex_notification.sql](/SQL/nex_notification.sql)
         * This table is created for saving data of notification  
-        
-            ```sql
-            CREATE TABLE `nex_notification` (
-                `idx` INT(11) NOT NULL AUTO_INCREMENT,
-                `severity` ENUM('Critical','Warning') NOT NULL DEFAULT 'Critical' COMMENT 'Notification Level ( Critical, Warning)' COLLATE 'utf8_general_ci',
-                `target_system` VARCHAR(32) NULL DEFAULT NULL COMMENT 'Notification target ( \'Host\',\'Agent\',\'Task\',\'Framework\',\'Docker\' )' COLLATE 'utf8_general_ci',
-                `target_ip` VARCHAR(32) NULL DEFAULT NULL COMMENT 'Target IP' COLLATE 'utf8_general_ci',
-                `target` VARCHAR(124) NULL DEFAULT NULL COMMENT 'Target( CPU, Memory, Disk, Netowrk, System Error..... )' COLLATE 'utf8_general_ci',
-                `metric` VARCHAR(512) NULL DEFAULT NULL COMMENT 'Metric' COLLATE 'utf8_general_ci',
-                `condition` VARCHAR(512) NULL DEFAULT NULL COMMENT 'Condition' COLLATE 'utf8_general_ci',
-                `id` VARCHAR(512) NULL DEFAULT NULL COMMENT 'Service/Task/Node/Framework의 Service ID or IP' COLLATE 'utf8_general_ci',
-                `status` ENUM('S','F') NULL DEFAULT 'S' COMMENT 'Status (\'S\':Start, \'F\':End)' COLLATE 'utf8_general_ci',
-                `start_time` TIMESTAMP NULL DEFAULT NULL COMMENT 'Start Time',
-                `finish_time` TIMESTAMP NULL DEFAULT NULL COMMENT 'End Time',
-                `contents` TEXT NOT NULL COMMENT 'notification Description' COLLATE 'utf8_general_ci',
-                `memo` TEXT NULL COLLATE 'utf8_general_ci',
-                `check_yn` CHAR(1) NOT NULL DEFAULT 'N' COLLATE 'utf8_general_ci',
-                `regdt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                PRIMARY KEY (`idx`),
-                INDEX `severity` (`severity`),
-                INDEX `target_system` (`target_system`),
-                INDEX `target_ip` (`target_ip`),
-                INDEX `id` (`id`),
-                INDEX `status` (`status`),
-                INDEX `start_time` (`start_time`),
-                INDEX `finish_time` (`finish_time`),
-                INDEX `regdt` (`regdt`)
-            )
-            COLLATE='latin1_swedish_ci'
-            ENGINE=InnoDB;
-            ```
-            <br> 
+        <br> 
     * [nex_node.sql](/SQL/nex_node.sql)
         * This table is created for saving the node information of DC/OS.
-            ```sql
-            CREATE TABLE `nex_node` (
-                `node_name` VARCHAR(64) NOT NULL COMMENT 'Node Name',
-                `node_ip` VARCHAR(32) NOT NULL COMMENT 'Node IP',
-                `node_id` VARCHAR(64) NOT NULL COMMENT 'Node ID',
-                `role` VARCHAR(64) NOT NULL COMMENT 'role(agent, master)',
-                `parent` VARCHAR(64) NULL DEFAULT NULL COMMENT 'Parent Host Information',
-                `status` VARCHAR(2) NOT NULL COMMENT 'Node Status',
-                `regdt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Registed date',
-                UNIQUE INDEX `node_ip` (`node_ip`)
-            )
-            COLLATE='utf8_general_ci'
-            ENGINE=InnoDB;
-            ```
-            <br>
+        <br>
     * [nex_config.sql](/SQL/nex_config.sql)
-        * This table is created for nexcloud configuration.
-            ```sql
-            CREATE TABLE `nex_config` (
-                `code` VARCHAR(64) NOT NULL COMMENT 'Code Name' COLLATE 'utf8_general_ci',
-                `value` TEXT NOT NULL COMMENT 'Data' COLLATE 'utf8_general_ci'
-            )
-            COLLATE='latin1_swedish_ci'
-            ENGINE=InnoDB;
-            ```
-        * These datas is saved about necessary information of nexcloud configuration.
-            ```sql
-            INSERT INTO `nex_config` (`code`, `value`) VALUES
-            ('influxdb', 'http://influxdb.marathon.l4lb.thisdcos.directory:8086'),
-            ('kafka_host', 'broker.kafka.l4lb.thisdcos.directory'),
-            ('kafka_mesos_group', 'workflow_consumer'),
-            ('kafka_notification_group', 'assurance_consumer'),
-            ('kafka_port', '9092'),
-            ('kafka_zookeeper', 'master.mesos:2181/dcos-service-kafka'),
-            ('mesos_topic', 'data_collector'),
-            ('mesos_endpoint', 'http://leader.mesos'),
-            ('mesos_influxdb', 'nexclipper'),
-            ('mesos_snapshot_topic', 'data_snapshot'),
-            ('notification_topic', 'data_assurance'),
-            ('redis_host', 'redis.marathon.l4lb.thisdcos.directory'),
-            ('redis_port', '6379'),
-            ('scretKey', 'TjRihTXJiMQMvxtOGcLYDqIXgaQJDuLYWYqyCEaxrsOuKULKqKjvgltroQrpGkIP'),
-            ('uid', 'admin@nexcloud.co.kr'),
-            ('kafka_snapshot_group', 'snapshot_consumer');
-            ```
+        * This table is created for nexcloud configuration.  
+        * These datas is saved about necessary information of nexcloud configuration.  
             ※ Please change the information of “SecetKey” and “uid”. This information has to be changed in your DC/OS information.
-
         * This is explaination for each columns of instert quarry. please refer it when you change information
-            ```sql
-            INSERT INTO `nex_config` (`code`, `value`) VALUES
-            ('influxdb'                 , 'INFLUXDB CONNECTION URL'),
-            ('kafka_host'               , 'KAFKA BROKER ADDRESS'),
-            ('kafka_mesos_group'        , 'KAFKA MESOS CONSUMER GROUP NAME - Unique Name'),
-            ('kafka_notification_group' , 'KAFKA ASSURANCE CONSUMER GROUP NAME - Unique Name'),
-            ('kafka_port'               , 'KAFKA CONNECTION PORT'),
-            ('kafka_zookeeper'          , 'KAFKA ZOOKEEPER CONNECTION URL'),
-            ('mesos_topic'              , 'MESOS METRIC KAFKA TOPIC NAME - Unique Name'),
-            ('mesos_endpoint'           , 'MESOS ENDPOINT'),
-            ('mesos_influxdb'           , 'MESOS METRIC INFLUXDB TABLE NAME - Unique Name'),
-            ('mesos_snapshot_topic'     , 'MESOS SNAPSHOT METRIC KAFKA TOPIC NAME - Unique Name'),
-            ('notification_topic'       , 'ASSURANCE METRIC KAFKA TOPIC NAME - Unique Name'),
-            ('redis_host'               , 'REDIS CONNECTION URL'),
-            ('redis_port'               , 'REDIS CONNECTION PORT'),
-            ('scretKey'                 , 'DC/OS가 설치된 master 서버의 "/var/lib/dcos/dcos-oauth/auth-token-secret" 데이터'),
-            ('uid'                      , 'registed user in your DC/OS'),
-            ('kafka_snapshot_group'     , 'KAFKA SNAPSHOT CONSUMER GROUP NAME - Unique Name');
-            ```
     <hr>
 
 2. Deployment JSON Modify
