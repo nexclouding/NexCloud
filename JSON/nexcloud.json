@@ -1,8 +1,8 @@
 {
-  "id": "/nexcloud",
+  "id": "/nexcloud_demo",
   "apps": [
     {
-		  "id": "/nexcloud/collecter",
+		  "id": "/nexcloud_demo/collecter",
 		  "backoffFactor": 1.15,
 		  "backoffSeconds": 1,
 		  "container": {
@@ -66,7 +66,7 @@
 		  "constraints": []
 		},
     {
-		  "id": "/nexcloud/workflow",
+		  "id": "/nexcloud_demo/workflow",
 		  "backoffFactor": 1.15,
 		  "backoffSeconds": 1,
 		  "container": {
@@ -132,7 +132,7 @@
 		  "constraints": []
 		},
     {
-		  "id": "/nexcloud/nexcloudui",
+		  "id": "/nexcloud_demo/nexcloudui",
 		  "backoffFactor": 1.15,
 		  "backoffSeconds": 1,
 		  "container": {
