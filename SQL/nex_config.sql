@@ -1,10 +1,7 @@
 CREATE TABLE `nex_config` (
-	`code` VARCHAR(64) NOT NULL COMMENT 'KEY' COLLATE 'utf8_general_ci',
-	`value` TEXT NOT NULL COMMENT 'VALUE' COLLATE 'utf8_general_ci'
-)
-COLLATE='latin1_swedish_ci'
-ENGINE=InnoDB
-;
+  `code` varchar(64) CHARACTER SET utf8 NOT NULL COMMENT 'KEY',
+  `value` text CHARACTER SET utf8 NOT NULL COMMENT 'VALUE'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 INSERT INTO `nex_config` (`code`, `value`) VALUES
