@@ -1,6 +1,6 @@
 CREATE TABLE `nex_config` (
-	`code` VARCHAR(64) NOT NULL COMMENT '코드명' COLLATE 'utf8_general_ci',
-	`value` TEXT NOT NULL COMMENT '데이터' COLLATE 'utf8_general_ci'
+	`code` VARCHAR(64) NOT NULL COMMENT 'KEY' COLLATE 'utf8_general_ci',
+	`value` TEXT NOT NULL COMMENT 'VALUE' COLLATE 'utf8_general_ci'
 )
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
@@ -21,6 +21,9 @@ INSERT INTO `nex_config` (`code`, `value`) VALUES
 ('notification_topic', 'data_assurance'),
 ('redis_host', 'redis.marathon.l4lb.thisdcos.directory'),
 ('redis_port', '6379'),
+-- secret key location --
+-- At master node : /var/lib/dcos/dcos-oauth/auth-token-secret --
 ('scretKey', 'TjRihTXJiMQMvxtOGcLYDqIXgaQJDuLYWYqyCEaxrsOuKULKqKjvgltroQrpGkIP'),
+-- DC/OS User ID --
 ('uid', 'admin@nexcloud.co.kr'),
 ('kafka_snapshot_group', 'snapshot_consumer');
