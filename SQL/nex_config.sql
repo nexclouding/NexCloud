@@ -13,7 +13,7 @@ INSERT INTO `nex_config` (`code`, `value`) VALUES
 ('kafka_zookeeper', 'master.mesos:2181/dcos-service-kafka'),
 ('mesos_topic', 'data_collector'),
 ('mesos_endpoint', 'http://leader.mesos'),
-('mesos_influxdb', 'nexclipper'),
+('mesos_influxdb', 'nexclipper_beta'),
 ('mesos_snapshot_topic', 'data_snapshot'),
 ('notification_topic', 'data_assurance'),
 ('redis_host', 'redis.marathon.l4lb.thisdcos.directory'),
