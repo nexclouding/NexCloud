@@ -1,5 +1,6 @@
 # NexCloud (Beta)
 
+* Please visit for updated virsion  https://github.com/TheNexCloud/NexClipper 
 ## Summary
 NexCloud is the container monitoring and performance management solution specialized in [Docker](https://www.docker.com), [Apache Mesos](http://mesos.apache.org), [Marathon](https://mesosphere.github.io/marathon/), [DC/OS](https://dcos.io), [Mesosphere](https://mesosphere.com), [Kubernetes](https://kubernetes.io/)(Soon).  It will provide container performance management , Microservice automation through API Gateway and Machine learning based predictive, forecasting, abnormal detection with enterprise version.  
   
