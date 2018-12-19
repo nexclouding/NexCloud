@@ -1,0 +1,15 @@
+stages:
+- name: stage1
+  steps:
+  - runScriptConfig:
+      image: java:8
+      shellScript: echo "stage1 step1
+- name: stage2
+  steps:
+  - runScriptConfig:
+      image: java:8
+      shellScript: echo "stage2 step1"
+  - runScriptConfig:
+      image: java:8
+      shellScript: echo "stage2 step2"
+timeout: 60
